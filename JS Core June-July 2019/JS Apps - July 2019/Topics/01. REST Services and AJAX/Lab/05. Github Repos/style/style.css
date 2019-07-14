@@ -1,0 +1,25 @@
+body{
+    padding: 30px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-size: 150%
+}
+
+input{
+    border: 1px solid #919092;
+    height: 45px;
+    color: #919092;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+button{
+    height: 50px;
+    color: #ffffff;
+    background-color: #4caf50;
+}
+
+input, button{
+    font-weight: 100;
+    border-radius: 5px;
+    font-size:95%;
+}
