@@ -1,0 +1,9 @@
+
+
+
+[ [ 'Pesho', { Duck: 400 } ],
+  [ 'Gladius', { Heal: 200, Support: 250, Shield: 250 } ] ]
+
+
+{ Pesho: { Duck: 400 },
+  Gladius: { Heal: 200, Support: 250, Shield: 250 } }
