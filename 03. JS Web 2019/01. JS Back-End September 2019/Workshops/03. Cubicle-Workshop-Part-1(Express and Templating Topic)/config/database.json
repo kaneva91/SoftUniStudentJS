@@ -1,0 +1,26 @@
+{
+  "count": 3,
+  "entries": [
+    {
+      "name": "Test 1",
+      "description": "Description test 1",
+      "imageUrl": "https://ae01.alicdn.com/kf/HTB1CSddXRxRMKJjy0Fdq6yifFXa6/Gan-356-Air-SM-3x3-Black-Magic-cube-GAN-Air-SM-Magnetic-3x3x3-Speed-cube-gans.jpg",
+      "difficultyLevel": "3",
+      "id": 1
+    },
+    {
+      "name": "Test 2",
+      "description": "Description test 2",
+      "imageUrl": "https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg",
+      "difficultyLevel": "4",
+      "id": 2
+    },
+    {
+      "name": "Test 3",
+      "description": "Description test 3",
+      "imageUrl": "https://www.joann.com/on/demandware.static/-/Sites-joann-product-catalog/default/dwea5b7991/images/hi-res/15/15948649.jpg",
+      "difficultyLevel": "3",
+      "id": 3
+    }
+  ]
+}
