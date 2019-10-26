@@ -3,7 +3,8 @@ const path = require('path');
 const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
-const {cookieName} = require('../app-config');
+const { cookieName } = require('../app-config');
+const config = require('../config/config');
 
 module.exports = (app) => {
     app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,7 +17,9 @@ module.exports = (app) => {
     app.use(cookieParser());
 
     app.use((req, res, next) => {
-        res.locals.isLoggedin = res.cookies[cookieName] !== undefined;
+        res.locals.isLogged = req.cookies[config.cookie] !== undefined;
         res.locals.username = req.cookies['username'];
+
+        next();
     })
 };
