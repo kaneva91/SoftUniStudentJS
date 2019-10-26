@@ -1,0 +1,19 @@
+<h1>Welcome to SoftUni Wiki!</h1>
+
+{{#each errorMessages}}
+<section id="notifications">
+    <p>{{this}}</p>
+</section>
+{{/each}}
+<section>
+    <h2>Create new article</h2>
+    <div class="spacer">
+        <form method="POST" action="/createArticle">
+            <label>Article title</label>
+            <input name="title" type="text" class="title">
+            <label>Content</label>
+            <textarea name = "content"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</section>
