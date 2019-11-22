@@ -1,0 +1,11 @@
+.NotFound{
+    width: 83%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.NotFound img{
+    width: 250px;
+    margin: 0 auto;
+    display: block;
+}
