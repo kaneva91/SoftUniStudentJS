@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import Main from './Main';
+import Register from './Register';
 
 
 import styles from './App.module.css';
@@ -14,7 +15,13 @@ function App() {
       <Navigation />
       <div className="main-container">
         <Switch>
-          <Route exact path='/' componenet={Main} />
+          <Route exact path='/' component={Main} />
+          <Route path="/register" component={Register} />
+          <Route  path='/login' component={Main} />
+          <Route  path='/about' component={Main} />
+          <Route  path='/cart' component={Main} />
+          <Route  path='/profile' component={Main} />
+          <Route  path='/*' component={Main} />
         </Switch>
       </div>
       <Footer />
