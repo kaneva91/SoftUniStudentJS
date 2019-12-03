@@ -1,0 +1,61 @@
+
+.Register-Form{
+    display:table;
+    margin:auto;
+    color : #FFFFFF;
+    font-size: 1.5rem;
+    margin-top: 5%;
+    width: 40%;
+    border : 1px solid FFFFFF;
+}
+
+label {
+    float: left;
+    width: 30%;
+    text-align: right;
+}
+
+input {margin-left: 5%;
+    text-align: center;
+    border:1px solid #234465;
+    padding: 1%;
+    width: 50%;
+    border-radius: 6px;
+   border:  1px solid black;
+   
+}
+
+.error{
+    height: 1.6rem;
+    font-style: italic;
+    font-size: 1rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+button {
+    background-color: #555555;
+    border: none;
+    color: #FFFFFF;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 6px;
+    position:relative;
+    top:50%; 
+    left:50%;
+    cursor: pointer;
+    box-shadow: 0 3px #999999;
+}
+
+button:hover,button:active  { 
+     background-color: rgb(37, 37, 37);
+    color: #FFFFFF;
+}
+
+button:active {
+  box-shadow: 0 5px #666666;
+  transform: translateY(4px);
+}
