@@ -1,12 +1,16 @@
 import React from "react";
-import { Form, Field } from "react-final-form";
+import { Form} from "react-final-form";
+import { Redirect } from 'react-router-dom';
+
+import styles from '../shared/styles/RegisterAndLogin.module.css';
+
+import InputField from '../shared/InputField';
 import userServices from '../../services/user-services';
-import styles from './Register.module.css';
-import { Redirect } from 'react-router-dom'
+
+
 const onSubmit = values => {
 
   const {username, password, firstName, lastName, email} = values;
-
   const data =  {username, password, firstName, lastName, email};
  
    userServices.register(data)
@@ -14,23 +18,12 @@ const onSubmit = values => {
 
   //there should redirect but it not works
 
-  //history.push('/')
+  //history.push('/ ')
   )
   .catch(err =>console.log(err)) 
 
 };
 
-const InputField = ({ name, label, type, placeholder }) => {
-  return (<Field name={name} >
-    {({ input, meta }) => (
-      <div>
-        <label>{label}</label>
-        <input {...input} type={type} placeholder={placeholder} />
-        <div className={styles.error}>  {meta.error && meta.touched ? `${meta.error}` : ""}</div>
-      </div>
-    )}
-  </Field>)
-}
 
 function Register() {
 
@@ -64,7 +57,7 @@ function Register() {
       }}
       render={({ handleSubmit, submitting, values }) => (
 
-        <form className={styles['Register-Form']}>
+        <form className={styles['Form-Wrapper']}>
           <InputField name="username" label={'Username:'} placeholder={'Username'} type='text' />
           <InputField name="password" label={'Password:'} type='password' placeholder={'Password'} />
           <InputField name="rePassword" label={'Re-Password:'} placeholder={'Re-Password'} type='password' />
