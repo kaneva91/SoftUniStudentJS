@@ -87,16 +87,11 @@ class Register extends Component {
               }
 
             </div>
-            <pre>{JSON.stringify(values, 0, 2)}</pre>
           </form>
         )}
       />
-
     )
   }
-
-
-
 }
 
 export default Register;

@@ -12,7 +12,7 @@ const InputField = ({ name, label, type, placeholder }) => {
                 <div className={styles.error}>  {meta.error && meta.touched ? `${meta.error}` : ""}</div>
             </div>
         )}
-    </Field>)
+    </Field>) 
 }
 
 export default InputField;
