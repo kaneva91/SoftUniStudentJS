@@ -12,7 +12,8 @@ function Main() {
     };
 
     return (
-        <Carousel activeIndex={index} direction={direction} onSelect={handleSelect}>
+        <div></div>
+     /*   { <Carousel activeIndex={index} direction={direction} onSelect={handleSelect}>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
@@ -50,7 +51,7 @@ function Main() {
             </p>
                 </Carousel.Caption>
             </Carousel.Item>
-        </Carousel>
+        </Carousel> }*/
     );
 }
 
