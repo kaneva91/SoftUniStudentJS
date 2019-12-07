@@ -12,9 +12,9 @@ function Navigation({ isLoggedIn }) {
                 <ul>
                     <li><a href="#">Products</a>
                         <ul >
-                            <li><a href="#">Sub-1</a></li>
-                            <li><a href="#">Sub-2</a></li>
-                            <li><a href="#">Sub-3</a></li>
+                            <li> <Link to="/">Sub-1</Link></li>
+                            <li> <Link to="/">Sub-1</Link></li>
+                            <li> <Link to="/">Sub-1</Link></li>
                         </ul>
                     </li>
                     {isLoggedIn ?

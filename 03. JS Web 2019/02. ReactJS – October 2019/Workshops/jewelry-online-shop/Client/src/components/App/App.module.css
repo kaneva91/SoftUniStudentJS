@@ -1,3 +1,7 @@
 .App{
     width:100%;
 }
+
+.main-container{
+    padding-top:100px;
+}

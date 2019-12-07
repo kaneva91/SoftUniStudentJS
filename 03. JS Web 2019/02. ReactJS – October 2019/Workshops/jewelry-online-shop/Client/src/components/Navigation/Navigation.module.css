@@ -9,11 +9,11 @@
     display : flex;
     flex-wrap : nowrap;
     justify-content: space-between;
+    z-index: 2147483647 !important; 
+    position: fixed;
+    top: 0;
 }
 
-.Navigation div{
-  
-}
 
 
 .logo, .search{
@@ -41,9 +41,6 @@
     
 }
 
-a {
-    text-decoration: none;
-  }
   
   nav {
       font-family: monospace;
@@ -58,33 +55,42 @@ a {
   
   li {
       color: #fff;
-    background: black;
+      background: black;
       display: block;
       float: left;
       padding: 1rem;
       position: relative;
-      text-decoration: none;
-    transition-duration: 0.5s;
+      transition-duration: 0.5s;
+      list-style: none;
   }
     
   li a {
     color: #fff;
+    list-style: none;
+    text-decoration: none;
+    z-index: 999;
   }
   
   li:hover {
       background: gray;
       cursor: pointer;
   }
+
+  li a:hover {
+    color:white;
+    text-decoration: none;
+    z-index: 999;
+  }
   
   ul li ul {
-      background: black;
-      visibility: hidden;
+    background: black;
+    visibility: hidden;
     opacity: 0;
     min-width: 5rem;
-      position: absolute;
+    position: absolute;
     transition: all 0.5s ease;
     margin-top: 1rem;
-      left: 0;
+    left: 0;
     display: none;
   }
   
@@ -93,9 +99,11 @@ a {
     visibility: visible;
     opacity: 1;
     display: block;
+  
   }
   
   ul li ul li {
       clear: both;
-    width: 100%;
+      width: 100%;
+      z-index: 999;
   }
