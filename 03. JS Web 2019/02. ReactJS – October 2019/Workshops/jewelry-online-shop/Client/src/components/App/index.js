@@ -7,7 +7,7 @@ import Footer from '../Footer';
 import Main from '../Main';
 import Register from '../Register';
 import Login from '../Login';
-
+import CategoryPage from '../CategoryPage';
 
 import styles from './App.module.css';
 
@@ -37,7 +37,7 @@ class App extends Component {
             <Route path='/Logout' component={Main} />
             <Route path='/Bracelets' component={Main} />
             <Route path='/Earings' component={Main} />
-            <Route path='/Keychains' component={Main} />
+            <Route path='/Keychains' component={CategoryPage}  categoryName ='Keychains'/>
             <Route path='/*' component={Main} />
           </Switch>
         </div>
