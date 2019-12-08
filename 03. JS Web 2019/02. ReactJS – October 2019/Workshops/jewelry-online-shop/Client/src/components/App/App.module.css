@@ -6,14 +6,6 @@
    padding-top: 5rem;  
    padding-bottom: 5rem;
    color: white;
-  /*  border : 1px solid white; */
    min-height: 45rem;
 }
 
-.greating{
-    border-bottom   : 1px solid white;
-    font-size : 1.2em;
-    text-align: center;
-    background-color: black;
-    opacity: 0.9;
-}

@@ -22,13 +22,11 @@ class App extends Component {
   }
 
   render() {
-
     const isLoggedIn = this.state.isLoggedIn;
     return (
       <BrowserRouter>
         <Navigation isLoggedIn={isLoggedIn}/>
         <div className={styles['main-container']}>
-          <div className={styles.greating}>Welcome, Guest!</div>
           <Switch>
             <Route exact path='/' component={Main} />
             <Route path="/register" component={Register} />}
@@ -37,6 +35,9 @@ class App extends Component {
             <Route path='/cart' component={Main} />
             <Route path='/profile' component={Main} />
             <Route path='/Logout' component={Main} />
+            <Route path='/Bracelets' component={Main} />
+            <Route path='/Earings' component={Main} />
+            <Route path='/Keychains' component={Main} />
             <Route path='/*' component={Main} />
           </Switch>
         </div>

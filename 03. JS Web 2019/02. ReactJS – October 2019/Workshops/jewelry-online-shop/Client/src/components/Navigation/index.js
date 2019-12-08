@@ -13,9 +13,9 @@ function Navigation({ isLoggedIn }) {
                     <li><Link to="/">Home</Link></li>
                     <li><a href="#">Products</a>
                         <ul >
-                            <li> <Link to="/">Sub-1</Link></li>
-                            <li> <Link to="/">Sub-1</Link></li>
-                            <li> <Link to="/">Sub-1</Link></li>
+                            <li> <Link to="/">Bracelets</Link></li>
+                            <li> <Link to="/">Earings</Link></li>
+                            <li> <Link to="/">Keychains</Link></li>
                         </ul>
                     </li>
                     {isLoggedIn ?
@@ -36,6 +36,7 @@ function Navigation({ isLoggedIn }) {
             <div className={styles.search}>
                 <input type="text"></input>
             </div>
+            <div className={styles.greating}>Welcome, Guest!</div>
         </nav>
     )
 }
