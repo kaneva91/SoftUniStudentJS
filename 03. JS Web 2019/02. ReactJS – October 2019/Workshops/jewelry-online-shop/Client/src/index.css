@@ -20,6 +20,7 @@ code {
 body {
   line-height: 1;
   background-image: url("/background.jpg");
+  background-repeat: no-repeat;
  
   background-color: #464646;
 }

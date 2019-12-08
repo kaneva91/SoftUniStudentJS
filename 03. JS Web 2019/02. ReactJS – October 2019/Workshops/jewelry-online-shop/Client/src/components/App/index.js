@@ -27,7 +27,8 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Navigation isLoggedIn={isLoggedIn}/>
-        <div className="main-container">
+        <div className={styles['main-container']}>
+          <div className={styles.greating}>Welcome, Guest!</div>
           <Switch>
             <Route exact path='/' component={Main} />
             <Route path="/register" component={Register} />}

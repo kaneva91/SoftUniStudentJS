@@ -10,6 +10,7 @@ function Navigation({ isLoggedIn }) {
             <div className={styles.logo}>Gewerly Store</div>
             <div className={styles['main-section']}>
                 <ul>
+                    <li><Link to="/">Home</Link></li>
                     <li><a href="#">Products</a>
                         <ul >
                             <li> <Link to="/">Sub-1</Link></li>

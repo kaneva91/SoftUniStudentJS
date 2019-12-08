@@ -1,0 +1,17 @@
+
+.main-heading, .store-description{
+   
+    color: white;
+    text-align: center;
+   font-style: italic;
+}
+
+.main-heading{
+    margin-top: 2rem;
+    padding-top :3rem;
+}
+
+.store-description{
+ font-size: 1.5rem;
+}
+
