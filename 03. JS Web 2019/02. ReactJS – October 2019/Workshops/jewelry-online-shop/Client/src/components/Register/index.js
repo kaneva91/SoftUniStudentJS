@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Form } from "react-final-form";
 import { Redirect } from 'react-router-dom';
 
@@ -15,10 +15,10 @@ class Register extends Component {
     super(props)
 
     this.state = {
-      hasRegistred: false
+      hasRegistred: false,
+      fetchError : ''
     }
   }
-
 
   onSubmit = values => {
 
@@ -27,16 +27,18 @@ class Register extends Component {
 
     userServices.register(data)
       .then(res => {
-        console.log(res)
         this.setState({hasRegistred : true})
       }
       )
-      .catch(err => console.log(err))
-
+      .catch(err => {
+        console.log(err)
+        this.setState({fetchError: 'Something went wrong, please try again.'});
+      })
   };
 
 
   render() {
+    const{hasRegistred, fetchError} = this.state;
     return (
       <Form
         onSubmit={this.onSubmit}
@@ -65,27 +67,30 @@ class Register extends Component {
           }
           return errors;
         }}
-        render={({ handleSubmit, submitting, values }) => (
+        render={({ handleSubmit, submitting}) => (
 
           <form className={styles['Form-Wrapper']}>
-            <InputField name="username" label={'Username:'} placeholder={'Username'} type='text' />
-            <InputField name="password" label={'Password:'} type='password' placeholder={'Password'} />
-            <InputField name="rePassword" label={'Re-Password:'} placeholder={'Re-Password'} type='password' />
-            <InputField name="firstName" label={'First Name:'} placeholder={'First Name'} type='text' />
-            <InputField name="lastName" label={'Last Name:'} placeholder={'Last Name'} type='text' />
-            <InputField name="email" label={'Email:'} type='email' placeholder={'mail@example.com'} />
+            <InputField name="username" label={'username:'} placeholder={'Username'} type='text' />
+            <InputField name="password" label={'password:'} type='password' placeholder={'Password'} />
+            <InputField name="rePassword" label={'rePassword:'} placeholder={'Re-Password'} type='password' />
+            <InputField name="firstName" label={'firstName:'} placeholder={'First Name'} type='text' />
+            <InputField name="lastName" label={'lastName:'} placeholder={'Last Name'} type='text' />
+            <InputField name="email" label={'email:'} type='email' placeholder={'mail@example.com'} />
+
+            <div className={styles['fetch-error']}>
+             { fetchError && <Fragment>{fetchError}</Fragment>}
+            </div>
 
             <div className="button">
               <button onClick={(event) => { event.preventDefault(); handleSubmit(); }} disabled={submitting}>
                 Register
               </button>
               {
-               this.state.hasRegistred ? 
+              hasRegistred ? 
                <Redirect to='/login'/>
                :
                <Redirect to='/register'/>
               }
-
             </div>
           </form>
         )}

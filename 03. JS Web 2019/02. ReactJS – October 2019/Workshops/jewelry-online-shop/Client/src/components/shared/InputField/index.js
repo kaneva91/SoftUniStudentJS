@@ -9,7 +9,7 @@ const InputField = ({ name, label, type, placeholder }) => {
             <div>
                 <label>{label}</label>
                 <input {...input} type={type} placeholder={placeholder} />
-                <div className={styles.error}>  {meta.error && meta.touched ? `${meta.error}` : ""}</div>
+                <div className={styles['input-error']}>  {meta.error && meta.touched ? `${meta.error}` : ""}</div>
             </div>
         )}
     </Field>) 
