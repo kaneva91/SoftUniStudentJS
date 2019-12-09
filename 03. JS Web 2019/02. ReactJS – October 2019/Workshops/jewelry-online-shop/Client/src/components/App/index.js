@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-
-//import ContextWrapper from '../ContextWrapper';
 import { UserProvider } from '../ContextWrapper';
 
 import Navigation from '../Navigation';
@@ -14,12 +12,8 @@ import Logout from '../Logout';
 import CategoryPage from '../CategoryPage';
 
 import styles from './App.module.css';
-import { isNoop } from '@babel/types';
 
 function App() {
-
-
-
   return (
     <UserProvider>
       <BrowserRouter>

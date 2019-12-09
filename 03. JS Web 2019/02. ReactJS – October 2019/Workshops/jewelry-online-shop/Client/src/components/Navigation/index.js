@@ -6,11 +6,8 @@ import styles from './Navigation.module.css';
 
 
 function Navigation() {
-   const [user] = useContext(UserContext);
-   console.log(user)
-
+    const [user] = useContext(UserContext);
     return (
-     
         <nav className={styles.Navigation}>
             <div className={styles.logo}>Gewerly Store</div>
             <div className={styles['main-section']}>
@@ -24,11 +21,11 @@ function Navigation() {
                         </ul>
                     </li>
                     {user.loggedIn ?
-                        <frameElement>
+                        <Fragment>
                             <li><Link to="/cart">Cart</Link></li>
                             <li><Link to="/profile">Profile</Link></li>
                             <li><Link to="/logout">Logout</Link></li>
-                        </frameElement>
+                        </Fragment>
                         :
                         <Fragment>
                             <li> <Link to="/login">Login</Link></li>
@@ -42,9 +39,9 @@ function Navigation() {
                 <input type="text"></input>
             </div>
             <div className={styles.greating}>
-                {!!user.name ? `Welcome ${user.name}`:' Welcome, Guest!'}</div>
+                {!!user.name ? `Welcome ${user.name}` : ' Welcome, Guest!'}</div>
         </nav>
-       
+
     )
 }
 
