@@ -1,11 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import UserContext from '../ContextWrapper';
+
 import styles from './Navigation.module.css';
 
 
-function Navigation({ isLoggedIn }) {
+function Navigation() {
+   const [user] = useContext(UserContext);
+   console.log(user)
 
     return (
+     
         <nav className={styles.Navigation}>
             <div className={styles.logo}>Gewerly Store</div>
             <div className={styles['main-section']}>
@@ -18,7 +23,7 @@ function Navigation({ isLoggedIn }) {
                             <li> <Link to="/">Keychains</Link></li>
                         </ul>
                     </li>
-                    {isLoggedIn ?
+                    {user.loggedIn ?
                         <frameElement>
                             <li><Link to="/cart">Cart</Link></li>
                             <li><Link to="/profile">Profile</Link></li>
@@ -36,8 +41,10 @@ function Navigation({ isLoggedIn }) {
             <div className={styles.search}>
                 <input type="text"></input>
             </div>
-            <div className={styles.greating}>Welcome, Guest!</div>
+            <div className={styles.greating}>
+                {!!user.name ? `Welcome ${user.name}`:' Welcome, Guest!'}</div>
         </nav>
+       
     )
 }
 

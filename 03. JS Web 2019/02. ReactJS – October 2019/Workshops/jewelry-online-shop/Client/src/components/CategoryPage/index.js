@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
 
 class CategoryPage extends Component {
+
+
+    
     render(){
 
     console.log(this.props.categoryName)
