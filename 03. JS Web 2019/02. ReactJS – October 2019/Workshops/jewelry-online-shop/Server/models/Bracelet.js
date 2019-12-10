@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const Model = mongoose.model;
 const { String, Number } = Schema.Types;
 
-const kechainSchema = new Schema({
+const braceletSchema = new Schema({
 
     name: {
         type: String,
@@ -25,4 +25,4 @@ const kechainSchema = new Schema({
     }
 });
 
-module.exports = new Model('Keychain', kechainSchema);
+module.exports = new Model('Bracelet', braceletSchema);
