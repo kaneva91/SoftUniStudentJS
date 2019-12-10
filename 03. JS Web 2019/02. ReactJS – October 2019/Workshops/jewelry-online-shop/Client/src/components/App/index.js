@@ -27,9 +27,9 @@ function App() {
             <Route path='/cart' component={Main} />
             <Route path='/profile' component={Main} />
             <Route path='/logout' component={Logout} />
-            <Route path='/bracelets' component={() => <CategoryPage categoryName={'Bracelets'} />} />
-            <Route path='/earings' component={() => <CategoryPage categoryName={'Earings'} />} /> 
-            <Route path='/keychains' component={() => <CategoryPage categoryName={'Keychains'} />} />
+            <Route path='/bracelets' component={() => <CategoryPage categoryName={'bracelet'} />} />
+            <Route path='/earings' component={() => <CategoryPage categoryName={'earing'} />} /> 
+            <Route path='/keychains' component={() => <CategoryPage categoryName={'keychain'} />} />
             <Route path='/*' component={Main} />
           </Switch>
         </div>
