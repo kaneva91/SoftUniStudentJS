@@ -1,0 +1,11 @@
+.heading{
+    margin-top : 2rem;
+    text-align: center;
+   
+}
+
+.product-section{
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}

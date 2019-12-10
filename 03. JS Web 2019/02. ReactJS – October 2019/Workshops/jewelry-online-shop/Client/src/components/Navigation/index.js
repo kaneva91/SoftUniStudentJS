@@ -15,9 +15,9 @@ function Navigation() {
                     <li><Link to="/">Home</Link></li>
                     <li><a href="#">Products</a>
                         <ul >
-                            <li> <Link to="/">Bracelets</Link></li>
-                            <li> <Link to="/">Earings</Link></li>
-                            <li> <Link to="/">Keychains</Link></li>
+                            <li> <Link to="/bracelets">Bracelets</Link></li>
+                            <li> <Link to="/earings">Earings</Link></li>
+                            <li> <Link to="/keychains">Keychains</Link></li>
                         </ul>
                     </li>
                     {user.loggedIn ?

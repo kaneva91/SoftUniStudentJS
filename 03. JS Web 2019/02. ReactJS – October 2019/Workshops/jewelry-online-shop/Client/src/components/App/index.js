@@ -17,7 +17,7 @@ function App() {
   return (
     <UserProvider>
       <BrowserRouter>
-        <Navigation  />
+        <Navigation />
         <div className={styles['main-container']}>
           <Switch>
             <Route exact path='/' component={Main} />
@@ -26,17 +26,17 @@ function App() {
             <Route path='/about' component={Main} />
             <Route path='/cart' component={Main} />
             <Route path='/profile' component={Main} />
-            <Route path='/Logout' component={Logout} />
-            <Route path='/Bracelets' component={Main} />
-            <Route path='/Earings' component={Main} />
-            <Route path='/Keychains' component={CategoryPage} />
+            <Route path='/logout' component={Logout} />
+            <Route path='/bracelets' component={() => <CategoryPage categoryName={'Bracelets'} />} />
+            <Route path='/earings' component={() => <CategoryPage categoryName={'Earings'} />} /> 
+            <Route path='/keychains' component={() => <CategoryPage categoryName={'Keychains'} />} />
             <Route path='/*' component={Main} />
           </Switch>
         </div>
         <Footer />
       </BrowserRouter >
-      </UserProvider> 
-  
+    </UserProvider>
+
   )
 
 

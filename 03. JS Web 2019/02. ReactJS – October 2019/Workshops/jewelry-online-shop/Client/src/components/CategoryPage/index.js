@@ -1,21 +1,32 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
+import styles from './CategoryPage.module.css';
+import Item from '../products/Item';
 
-class CategoryPage extends Component {
+import productServices from '../../services/products-services';
+
+function CategoryPage({ categoryName }) {
+
+    const [items, setItems] = useState([]);
 
 
-    
-    render(){
+    productServices.load('keychain').then(items => {
+        setItems(items);
 
-    console.log(this.props.categoryName)
-    return(
+    });
+
+    return (
         <Fragment>
-            <h1>{this.props.categoryName}</h1>
-            <section>
-
-        </section>
-    </Fragment >
+            <h1 className={styles.heading}>{categoryName}</h1>
+            <section className={styles['product-section']}>
+                {
+                    items && items.map(item => <Item key={item.name} name={item.name} url={item.url} price={item.price} />)
+                }
+            </section>
+        </Fragment >
     )
+
 }
-}
+
+
 
 export default CategoryPage;
