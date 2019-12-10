@@ -10,7 +10,7 @@ function CategoryPage({ categoryName }) {
     const [items, setItems] = useState([]);
 
 
-    productServices.load('keychain').then(items => {
+    productServices.load(categoryName).then(items => {
         setItems(items);
 
     });
@@ -20,7 +20,7 @@ function CategoryPage({ categoryName }) {
             <h1 className={styles.heading}>{pageTitle}</h1>
             <section className={styles['product-section']}>
                 {
-                    items && items.map(item => <Item key={item.name} name={item.name} url={item.url} price={item.price} />)
+                    items && items.map(item => <Item key={item.name} name={item.name} url={item.url} price={item.price} category={categoryName} id={item._id}/>)
                 }
             </section>
         </Fragment >

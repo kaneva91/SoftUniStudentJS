@@ -10,6 +10,7 @@ import Register from '../Register';
 import Login from '../Login';
 import Logout from '../Logout';
 import CategoryPage from '../CategoryPage';
+import Details from '../Details';
 
 import styles from './App.module.css';
 
@@ -30,6 +31,9 @@ function App() {
             <Route path='/bracelets' component={() => <CategoryPage categoryName={'bracelet'} />} />
             <Route path='/earings' component={() => <CategoryPage categoryName={'earing'} />} /> 
             <Route path='/keychains' component={() => <CategoryPage categoryName={'keychain'} />} />
+            <Route path='/bracelet/:id' component={Details} />
+            <Route path='/earings/:id' component={Details} />
+            <Route path='/keychain/:id' component={Details} />
             <Route path='/*' component={Main} />
           </Switch>
         </div>

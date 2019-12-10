@@ -11,5 +11,12 @@ module.exports = {
         models.Bracelet.create({name, url, description, price})
         .then(created => res.send(created))
         .catch(next)
+    },
+
+    getDetails : (req,res,next) =>{
+        const query  = {_id: req.params.id};
+        models.Bracelet.findById(query)
+        .then(bracelet=> res.send(bracelet))
+        .catch(next)
     }
 }
