@@ -1,18 +1,20 @@
 .image-wrapper, .details-wrapper{
-    border : 1px solid white;
+   
     display: inline-block;
+    margin-top: 100px
    
   
 }
 .image-wrapper{
-    margin-top: 6rem;
-    margin-left: 15rem;
-    padding: 2rem;  
-
     
+    margin-left: 15rem;
+    padding: 1.5rem;  
+    background:#252525;
+    border : 1px solid white;
 }
+
 .details-wrapper{
-  margin-right: 4rem;
+  margin-left: 6rem;
   width: 40%;
 }
 
@@ -21,3 +23,40 @@
     height: 350;
     padding-left: left 10rm;;
 }
+
+.details-wrapper h3{
+    font-size: 3rem;
+    margin-bottom: 40px;
+    padding-top: 20px
+ 
+    
+
+}
+.details-wrapper p {
+    font-size: 25px;
+    margin-bottom: 40px;
+    
+}
+
+.details-wrapper p:last-child{
+    font-weight: 500;
+}
+
+.button{
+    border: 1px solid white;
+    text-decoration: none;
+    color : white;
+    width:200px;
+    margin-left: -100px;
+    
+    
+ 
+}
+
+.button:hover{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+}
+
+

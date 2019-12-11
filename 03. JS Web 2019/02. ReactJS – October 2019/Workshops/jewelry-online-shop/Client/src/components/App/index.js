@@ -29,11 +29,11 @@ function App() {
             <Route path='/profile' component={Main} />
             <Route path='/logout' component={Logout} />
             <Route path='/bracelets' component={() => <CategoryPage categoryName={'bracelet'} />} />
-            <Route path='/earings' component={() => <CategoryPage categoryName={'earing'} />} /> 
+            <Route path='/earings' component={() => <CategoryPage categoryName={'earing'} />} />
             <Route path='/keychains' component={() => <CategoryPage categoryName={'keychain'} />} />
             <Route path='/bracelet/:id' component={Details} />
             <Route path='/earings/:id' component={Details} />
-            <Route path='/keychain/:id' component={Details} />
+            <Route path='/keychain/:id' component={Details}/>
             <Route path='/*' component={Main} />
           </Switch>
         </div>

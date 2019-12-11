@@ -1,69 +1,50 @@
-import React, { useState,useEffect, Fragment, Component } from 'react';
-import { useParams } from "react-router";
+import React, {Fragment, Component } from 'react';
+
 import productService from '../../../services/products-services';
 import styles from './Details.module.css';
-/* 
-function Details() {
 
-    const [item, setItems] = useState(null);
-    const { id } = useParams();
-  //  const{url, description } = item;    
-
-  useEffect(()=>{
-    productService.details('bracelet', id)
-        .then(res => {
-           setItems(res);
-           console.log(item)
-        },[item])
-        .catch(err => console.log(err))
-  })
-    return (
-        <Fragment>
-        <section className={styles['image-wrapper']}>
-         
-        </section>
-        <section className={styles['details-wrapper']}>Details</section>
-        </Fragment>
-    )
-} */
-
-class Details extends Component{
-    constructor (props){
+class Details extends Component {
+    constructor(props) {
         super(props)
 
         this.state = {
-            item : null
+            item: null
         }
     }
 
-    componentDidMount(){
-        const id = this.props.match.params.id;
-        productService.details('bracelet', id)
-        .then(res => {this.setState({item : res})
-    console.log(this.state.item)})
+    componentDidMount() {
+        const path = this.props.history.location.pathname
+        productService.load(path)
+            .then(res => {
+                this.setState({ item: res })
+                console.log(this.props.history.location.pathname)
+            })
     }
 
-    render(){
+    render() {
+        console.log(this.props)
         const item = this.state.item;
-        return(
+        return (
             <Fragment>
-            <section className={styles['image-wrapper']}>
-                {
-                    item &&<Fragment>
-                        <img className ={styles.image} src={item.url}/>
-                    </Fragment>
-                }
-            </section>
-            <section className={styles['details-wrapper']}>
-            {
-                    item &&<Fragment>
-                        <h3>{item.name}</h3>
-                        <p>{item.description}</p>
-                        <p>{item.price}</p>
-                    </Fragment>
-                }
-            </section>
-            
+                <section className={styles['image-wrapper']}>
+                    {
+                        item && <Fragment>
+                            <img className={styles.image} src={item.url} />
+                        </Fragment>
+                    }
+                </section>
+                <section className={styles['details-wrapper']}>
+                    {
+                        item && <Fragment>
+                            <h3>{item.name}</h3>
+                            <p>{item.description}</p>
+                            <p>Price:{item.price.toFixed(2)}lv.</p>
+                        </Fragment>
+                    }
+                </section>
+                <div>
+                <button className={styles.button} >Add to Cart</button>
+                </div>
             </Fragment>
         )
     }

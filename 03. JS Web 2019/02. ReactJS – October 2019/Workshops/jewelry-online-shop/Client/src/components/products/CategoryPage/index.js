@@ -13,14 +13,17 @@ class CategoryPage extends Component {
             items: null
         }
     }
+
   
     componentDidMount() {
-        productServices.load(this.props.categoryName).then(data => 
-            this.setState({ items: data }));
+        productServices.load(`/${this.props.categoryName}`).then(data => 
+            {this.setState({ items: data })
+            console.log(this.props)});
     }
 
     render() {
-        const { items, pageTitle } = this.state;``
+      
+        const { items, pageTitle } = this.state;
         return (
             <Fragment>
                 <h1 className={styles.heading}>{pageTitle}</h1>
@@ -32,7 +35,6 @@ class CategoryPage extends Component {
             </Fragment >
         )
     }
-
 }
 
 export default CategoryPage;
