@@ -1,3 +1,23 @@
-section{
-    border : 1px solid black;
+.image-wrapper, .details-wrapper{
+    border : 1px solid white;
+    display: inline-block;
+   
+  
+}
+.image-wrapper{
+    margin-top: 6rem;
+    margin-left: 15rem;
+    padding: 2rem;  
+
+    
+}
+.details-wrapper{
+  margin-right: 4rem;
+  width: 40%;
+}
+
+.image{
+    width:350px;
+    height: 350;
+    padding-left: left 10rm;;
 }
