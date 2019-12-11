@@ -27,8 +27,15 @@ const userServices = {
         credentials: 'include'
       }).then(res => res.text());
     },
-    add : function(id){
-      return fetch(`http://localhost:9999/api/user/${id}`)
+    add : function(userId, itemId){
+      console.log(userId,itemId)
+      return fetch(`http://localhost:9999/api/user/add${userId}`,{
+        method : "POST",
+        credentials: 'include',
+        body : {
+          itemId
+        }
+      })
       .then(res=> res.json())
     }
 }

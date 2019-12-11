@@ -12,18 +12,16 @@ function Details() {
   
     const addToCart = () => {
         if(user.userId){
-            console.log(userServices.add(user.userId))
+         const itemId = window.location.pathname.split('/')[2];
+        userServices.add(user.userId, itemId)
+        .then(res =>console.log(res))
+        .catch(err => console.log(err))
+            
         }
-
-      
-
-     
     }
-
     const path = window.location.pathname;
-    console.log(window.location)
+    
     useEffect(() => {
-
         productService.load(path)
             .then(res => {
                 setItemState(res)

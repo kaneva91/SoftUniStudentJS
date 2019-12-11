@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styles from './Item.module.css';
 
 function Item({ name, url, price, category, id}) {
-    console.log(category, id)
     return (
         <Link  to={`/${category}/${id}`}  className={styles.details}>
             <h3 className={styles.name}>{name}</h3>
@@ -12,4 +11,5 @@ function Item({ name, url, price, category, id}) {
         </Link>
     )
 }
+
 export default Item;
