@@ -13,7 +13,6 @@ module.exports = {
         register: (req, res, next) => {
            
             const { username, password, firstName, lastName, email } = req.body;
-            //console.log( 'data', username, password, firstName, lastName, email )
             models.User.create({username, password, firstName, lastName, email })
                 .then((createdUser) => res.send(createdUser))
                 .catch(next) 

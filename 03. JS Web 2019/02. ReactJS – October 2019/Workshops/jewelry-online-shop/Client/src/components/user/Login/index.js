@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { Form } from "react-final-form";
 import { Redirect } from 'react-router-dom';
 
-import styles from '../shared/styles/RegisterAndLogin.module.css';
-import { UserContext} from '../ContextWrapper';
+import styles from '../../shared/styles/RegisterAndLogin.module.css';
+import { UserContext} from '../../ContextWrapper';
 
-import InputField from '../shared/InputField';
-import userServices from '../../services/user-services';
+import InputField from '../../shared/InputField';
+import userServices from '../../../services/user-services';
 
 
 function Login() {

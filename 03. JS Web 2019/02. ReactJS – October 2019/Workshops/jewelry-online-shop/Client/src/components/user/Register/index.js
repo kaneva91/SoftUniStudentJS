@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Form } from "react-final-form";
 import { Redirect } from 'react-router-dom';
 
-import styles from '../shared/styles/RegisterAndLogin.module.css';
+import styles from '../../shared/styles/RegisterAndLogin.module.css';
 
-import InputField from '../shared/InputField';
-import userServices from '../../services/user-services';
+import InputField from '../../shared/InputField';
+import userServices from '../../../services/user-services';
 
 
 

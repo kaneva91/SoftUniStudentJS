@@ -6,11 +6,11 @@ import { UserProvider } from '../ContextWrapper';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
 import Main from '../Main';
-import Register from '../Register';
-import Login from '../Login';
-import Logout from '../Logout';
-import CategoryPage from '../CategoryPage';
-import Details from '../Details';
+import Register from '../user/Register';
+import Login from '../user/Login';
+import Logout from '../user/Logout';
+import CategoryPage from '../products/CategoryPage';
+import Details from '../products/Details';
 
 import styles from './App.module.css';
 
