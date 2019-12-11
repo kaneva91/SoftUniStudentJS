@@ -13,15 +13,15 @@ class CategoryPage extends Component {
             items: null
         }
     }
-  
+
     componentDidMount() {
-        productServices.load(`/${this.props.categoryName}`).then(data => 
-            {this.setState({ items: data })
-            console.log(this.props)});
+        productServices.load(`/${this.props.categoryName}`).then(data => {
+            this.setState({ items: data })
+        });
     }
 
     render() {
-      
+
         const { items, pageTitle } = this.state;
         return (
             <Fragment>

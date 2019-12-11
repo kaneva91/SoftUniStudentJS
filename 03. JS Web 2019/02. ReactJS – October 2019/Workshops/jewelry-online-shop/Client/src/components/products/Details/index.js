@@ -1,5 +1,6 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import productService from '../../../services/products-services';
+import userServices from '../../../services/user-services';
 import styles from './Details.module.css';
 import { UserContext } from '../../ContextWrapper'
 
@@ -7,9 +8,16 @@ import { UserContext } from '../../ContextWrapper'
 function Details() {
 
     const [item, setItemState] = useState(null);
+    const [user] = useContext(UserContext);
+  
+    const addToCart = () => {
+        if(user.userId){
+            console.log(userServices.add(user.userId))
+        }
 
-    const addToCart = (item) => {
-        console.log(item)
+      
+
+     
     }
 
     const path = window.location.pathname;
