@@ -13,7 +13,6 @@ class CategoryPage extends Component {
             items: null
         }
     }
-
   
     componentDidMount() {
         productServices.load(`/${this.props.categoryName}`).then(data => 
