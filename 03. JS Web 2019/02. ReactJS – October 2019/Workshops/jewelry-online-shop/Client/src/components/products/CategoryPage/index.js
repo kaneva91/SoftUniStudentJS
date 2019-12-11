@@ -9,7 +9,7 @@ class CategoryPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            pageTitle: this.props.categoryName.charAt(0).toUpperCase() + this.props.categoryName.slice(1) + 's',
+            pageTitle: this.props.categoryName.charAt(0).toUpperCase() + this.props.categoryName.slice(1) ,
             items: null
         }
     }
@@ -19,16 +19,14 @@ class CategoryPage extends Component {
             this.setState({ items: data })
         });
     }
-
     render() {
-
         const { items, pageTitle } = this.state;
         return (
             <Fragment>
                 <h1 className={styles.heading}>{pageTitle}</h1>
                 <section className={styles['product-section']}>
                     {
-                        items && items.map(item => <Item key={item.name} name={item.name} url={item.url} price={item.price} category={this.props.categoryName} id={item._id} />)
+                        items && items.map(item => <Item key={item.name} name={item.name} url={item.url} price={item.price.toFixed(2)} category={this.props.categoryName} id={item._id} />)
                     }
                 </section>
             </Fragment >

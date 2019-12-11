@@ -3,8 +3,8 @@ const router = require('../routes/');
 module.exports = (app) => {
 
     app.use('/api/user', router.user);
-    app.use ('/api/keychain', router.keychain);
-    app.use('/api/bracelet', router.bracelet);
+    app.use ('/api/keychains', router.keychain);
+    app.use('/api/bracelets', router.bracelet);
     app.use('/api/earings', router.earings);
 
   

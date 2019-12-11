@@ -25,4 +25,4 @@ const earingsSchema = new Schema({
     }
 });
 
-module.exports = new Model('Keychain', earingsSchema);
+module.exports = new Model('Earings', earingsSchema);

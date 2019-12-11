@@ -21,8 +21,9 @@ function Details() {
     }
 
     const path = window.location.pathname;
-
+    console.log(window.location)
     useEffect(() => {
+
         productService.load(path)
             .then(res => {
                 setItemState(res)

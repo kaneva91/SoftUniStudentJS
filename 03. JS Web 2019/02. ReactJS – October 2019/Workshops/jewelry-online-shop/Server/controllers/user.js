@@ -47,6 +47,16 @@ module.exports = {
         }
     },
 
+    add : (req,res,next) =>{
+       const userId = req.params.id;
+       const itemId=req.body.itemId;
+    
+           models.User.update({_id: userId},{$push : {cart: itemId}})
+           .then( updated => res.send(updated))
+        
+    },
+    
+
     put: (req, res, next) => {
         const id = req.params.id;
         const { username, password } = req.body;
