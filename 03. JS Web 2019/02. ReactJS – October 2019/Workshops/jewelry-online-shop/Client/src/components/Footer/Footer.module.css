@@ -3,5 +3,13 @@ footer{
     opacity: 0.9;
     height: 120px;
     border-top: 1px solid #ffffff;
- 
+    color :  #ffffff;
+}
+
+.contacts{
+
+}
+
+.email {
+    text-decoration: underline;
 }

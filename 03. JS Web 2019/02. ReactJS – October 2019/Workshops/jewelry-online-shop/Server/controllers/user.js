@@ -7,15 +7,39 @@ module.exports = {
         models.User.find()
             .then((users) => res.send(users))
             .catch(next)
+
+    },
+    add :(req,res,next) =>{
+        const itemId = req.params.id;
+        //const userId = res.cookies['x-auth-token'];
+        console.log(res)
+        //console.log(userId)
+
+    },
+
+
+    put: (req, res, next) => {
+        const id = req.params.id;
+        const { username, password } = req.body;
+        models.User.update({ _id: id }, { username, password })
+            .then((updatedUser) => res.send(updatedUser))
+            .catch(next)
+    },
+
+    delete: (req, res, next) => {
+        const id = req.params.id;
+        models.User.deleteOne({ _id: id })
+            .then((removedUser) => res.send(removedUser))
+            .catch(next)
     },
 
     post: {
         register: (req, res, next) => {
-           
+
             const { username, password, firstName, lastName, email } = req.body;
-            models.User.create({username, password, firstName, lastName, email })
+            models.User.create({ username, password, firstName, lastName, email })
                 .then((createdUser) => res.send(createdUser))
-                .catch(next) 
+                .catch(next)
         },
 
         login: (req, res, next) => {
@@ -44,31 +68,7 @@ module.exports = {
                     res.clearCookie(config.authCookieName).send('Logout successfully!');
                 })
                 .catch(next);
-        }
-    },
-
-    add : (req,res,next) =>{
-       const userId = req.params.id;
-       const itemId=req.body.itemId;
-    
-           models.User.update({_id: userId},{$push : {cart: itemId}})
-           .then( updated => res.send(updated))
-        
-    },
-    
-
-    put: (req, res, next) => {
-        const id = req.params.id;
-        const { username, password } = req.body;
-        models.User.update({ _id: id }, { username, password })
-            .then((updatedUser) => res.send(updatedUser))
-            .catch(next)
-    },
-
-    delete: (req, res, next) => {
-        const id = req.params.id;
-        models.User.deleteOne({ _id: id })
-            .then((removedUser) => res.send(removedUser))
-            .catch(next)
+        },
     }
+
 };
