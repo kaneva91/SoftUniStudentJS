@@ -1,37 +1,53 @@
 import React, { Fragment, useContext, useState, useEffect } from 'react';
 import { UserContext } from '../../ContextWrapper';
-import { Redirect } from 'react-router-dom';
 import userServices from '../../../services/user-services';
 import { Form } from "react-final-form";
 import ProfileField from '../../shared/ProfileFIeld';
+import { useHistory } from 'react-router-dom';
 
 import styles from './Profile.module.css';
 
 function Profile() {
 
-    const [user] = useContext(UserContext);
+    const history = useHistory();
+
+    const [user, setUserStatus] = useContext(UserContext);
     const [dataUser, setUserData] = useState(null);
 
     useEffect(() => {
         userServices.getProfile(user.userId)
-            .then(data => {
-                setUserData(data)
-                console.log(dataUser)
-            })
+            .then(data =>
+                setUserData(data))
             .catch(err => console.log(err))
     }, []);
 
 
-    const onSubmit = () => {
+    const updateProfile = values => {
+        userServices.updateUser(user.userId, values)
+            .then(res => {
+                const { firstName, lastName } = res;
+                 const updatedName = {name: `${firstName} ${lastName}`};
+                setUserData({...user,...updatedName  }) 
+                console.log(user)
+            })
 
+    }
+
+    const deleteUserProfile = () => {
+        userServices.deleteUser(user.userId)
+            .then(() => {
+                setUserStatus({ loggedIn: false, userId: '', name: 'Welcome, Guest!' })
+                history.push("/")
+            })
+            .catch(err => console.log(err))
     }
 
     return (
         dataUser ? <Fragment>
 
-            <h1 classname={styles.heading}>User Details</h1>
+            <h1 className={styles.heading}>User Details</h1>
             <Form
-                onSubmit={onSubmit}
+                onSubmit={updateProfile}
                 initialValues={dataUser}
                 render={({ handleSubmit, pristine, form, submitting, values }) => {
                     return (
@@ -42,8 +58,8 @@ function Profile() {
                             <ProfileField name={"email"} component={"input"} placeholder={'Email'} />
 
                             <div className="buttons">
-                                <button type="submit" disabled={submitting || pristine}>
-                                    Submit
+                                <button onClick={(ev)=> ev.preventDefault()} type="submit" disabled={submitting || pristine} >
+                                    Update Profile
                                 </button>
                                 <button
                                     type="button"
@@ -52,16 +68,17 @@ function Profile() {
                                 >
                                     Reset
                             </button>
-                            </div>  
+                            </div>
                         </form>
                     )
                 }}
             />
+            <div>
+                <button onClick={deleteUserProfile}> Delete Frofile</button>
+            </div>
         </Fragment>
             :
             <div>loading</div>
-
-
     )
 }
 

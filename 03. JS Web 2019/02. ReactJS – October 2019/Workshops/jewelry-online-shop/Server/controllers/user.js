@@ -5,22 +5,23 @@ const utils = require('../utils');
 module.exports = {
     get: (req, res, next) => {
         const id = req.params.id;
-        models.User.find({_id:id})
-        .then(data =>{
-            const {username, firstName, lastName, email} = data[0]; //password is prevent to be sent to the front-end
-            userDetails = {username , firstName, lastName, email};
-            return userDetails;
-        })
+        models.User.find({ _id: id })
+            .then(data => {
+                const { username, firstName, lastName, email } = data[0]; //password is prevent to be sent to the front-end
+                userDetails = { username, firstName, lastName, email };
+                return userDetails;
+            })
             .then((user) => res.send(user))
             .catch(next)
     },
 
     put: (req, res, next) => {
         const id = req.params.id;
-        const { username, password } = req.body;
-        models.User.update({ _id: id }, { username, password })
+        const { username, firstName, lastName, email } = req.body;
+        const query = { username, firstName, lastName, email }
+        models.User.findOneAndUpdate({ _id: id }, query, { new: true })
             .then((updatedUser) => res.send(updatedUser))
-            .catch(next)
+            .catch(err => console.log(err))
     },
 
     delete: (req, res, next) => {
@@ -48,7 +49,6 @@ module.exports = {
                         res.status(401).send('Invalid password');
                         return;
                     }
-
                     const token = utils.jwt.createToken({ id: user._id });
                     res.cookie(config.authCookieName, token).send(user);
                 })
