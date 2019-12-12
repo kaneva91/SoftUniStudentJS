@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect, useContext } from 'react';
 import productService from '../../../services/products-services';
 import userServices from '../../../services/user-services';
 import styles from './Details.module.css';
-import { UserContext } from '../../ContextWrapper'
+import { UserContext } from '../../ContextWrapper';
 
 
 function Details() {

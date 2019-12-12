@@ -4,19 +4,16 @@ const utils = require('../utils');
 
 module.exports = {
     get: (req, res, next) => {
-        models.User.find()
-            .then((users) => res.send(users))
+        const id = req.params.id;
+        models.User.find({_id:id})
+        .then(data =>{
+            const {username, firstName, lastName, email} = data[0]; //password is prevent to be sent to the front-end
+            userDetails = {username , firstName, lastName, email};
+            return userDetails;
+        })
+            .then((user) => res.send(user))
             .catch(next)
-
     },
-    add :(req,res,next) =>{
-        const itemId = req.params.id;
-        //const userId = res.cookies['x-auth-token'];
-        console.log(res)
-        //console.log(userId)
-
-    },
-
 
     put: (req, res, next) => {
         const id = req.params.id;

@@ -32,7 +32,12 @@ const userServices = {
        return fetch(`http://localhost:9999/api/user/add/${itemId}`)
        .then(res=>console.log(res))
        .catch(err => console.log(err))
-    }  
+    },
+    getProfile: function(id){
+        return fetch(`http://localhost:9999/api/user/${id}`)
+        .then(res=>res.json())
+        .catch(err=>console.log(err))
+    }
 
       /* return fetch(`http://localhost:9999/api/user/add/${userId}`,{
         method : "POST",
