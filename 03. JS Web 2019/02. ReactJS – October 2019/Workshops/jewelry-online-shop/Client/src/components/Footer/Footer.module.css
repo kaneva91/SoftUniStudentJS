@@ -1,15 +1,25 @@
 footer{
     background-color: #121212;
     opacity: 0.9;
-    height: 120px;
+    height: auto;
     border-top: 1px solid #ffffff;
     color :  #ffffff;
+    display : flex;
+    justify-content: space-around;
+    padding-top: 1%;
+    flex-wrap: wrap;
+  
 }
 
-.contacts{
-
-}
 
 .email {
     text-decoration: underline;
+}
+
+h4{
+    font-size: 20px;
+}
+
+a, a:hover{
+    color: #ffffff;
 }

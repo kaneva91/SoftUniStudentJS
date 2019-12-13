@@ -59,12 +59,12 @@ function Register() {
       render={({ handleSubmit, submitting }) => (
 
         <form className={styles['Form-Wrapper']}>
-          <InputField name="username" label={'username:'} placeholder={'Username'} type='text' />
-          <InputField name="password" label={'password:'} type='password' placeholder={'Password'} />
-          <InputField name="rePassword" label={'rePassword:'} placeholder={'Re-Password'} type='password' />
-          <InputField name="firstName" label={'firstName:'} placeholder={'First Name'} type='text' />
-          <InputField name="lastName" label={'lastName:'} placeholder={'Last Name'} type='text' />
-          <InputField name="email" label={'email:'} type='email' placeholder={'mail@example.com'} />
+          <InputField name="username" label={'Username'}  type='text' />
+          <InputField name="password" label={'Password'} type='password'  />
+          <InputField name="rePassword" label={'Re-Password'}  type='password' />
+          <InputField name="firstName" label={'First Name'} type='text' />
+          <InputField name="lastName" label={'Last Name'} type='text' />
+          <InputField name="email" label={'Email:'} type='email' placeholder={'mail@example.com'} />
 
           <div className={styles['fetch-error']}>
             {error ? error : ''}

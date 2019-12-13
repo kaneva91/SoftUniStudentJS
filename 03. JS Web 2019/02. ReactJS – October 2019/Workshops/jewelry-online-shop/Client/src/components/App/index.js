@@ -12,6 +12,7 @@ import Logout from '../user/Logout';
 import CategoryPage from '../products/CategoryPage';
 import Details from '../products/Details';
 import Profile from '../user/Profile';
+import Terms from '../Terms';
 import ProtectedRoute from '../ProtectedRoute';
 
 import styles from './App.module.css';
@@ -37,6 +38,7 @@ function App() {
             <Route path='/bracelets/:id' exact component={Details} />
             <Route path='/earings/:id' exact component={Details} />
             <Route path='/keychains/:id' exact component={Details} />
+            <Route path='/terms' exact component={Terms} />
             <Route path='/*' component={Main} />
           </Switch>
         </div>
