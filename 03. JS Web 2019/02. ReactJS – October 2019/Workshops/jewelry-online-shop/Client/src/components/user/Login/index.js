@@ -20,8 +20,8 @@ function Login() {
 
     userServices.login(data)
       .then((data) =>
-        setUserStatus({ loggedIn: true, userId: data._id, name: `${data.firstName} ${data.lastName}!` }))
-      .catch(error => setErroStatus('Invalid username or password!'))
+        setUserStatus({ loggedIn: true, userId: data._id, username: data.username }))
+      .catch(() => setErroStatus('Invalid username or password!'))
   };
 
   return (

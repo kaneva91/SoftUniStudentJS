@@ -39,7 +39,7 @@ function Navigation() {
                 <input type="text"></input>
             </div>
             <div className={styles.greating}>
-                {!!user.name ? `Welcome ${user.name}` : ' Welcome, Guest!'}</div>
+                {!!user.username ? `Welcome, ${user.username}!` : ' Welcome, Guest!'}</div>
         </nav>
 
     )

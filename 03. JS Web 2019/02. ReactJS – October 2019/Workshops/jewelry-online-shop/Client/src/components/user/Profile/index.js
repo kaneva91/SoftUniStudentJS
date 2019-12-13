@@ -25,11 +25,9 @@ function Profile() {
     const updateProfile = values => {
         userServices.updateUser(user.userId, values)
             .then(res => {
-                const { firstName, lastName } = res;
-                 const updatedName = {name: `${firstName} ${lastName}`};
-                setUserData({...user,...updatedName  }) 
-                console.log(user)
+               //todo
             })
+            .catch(err => console.log(err))
 
     }
 
@@ -52,13 +50,12 @@ function Profile() {
                 render={({ handleSubmit, pristine, form, submitting, values }) => {
                     return (
                         <form onSubmit={handleSubmit}>
-                            <ProfileField name={"username"} component={"input"} placeholder={'Username'} />
                             <ProfileField name={"firstName"} component={"input"} placeholder={'First Name'} />
                             <ProfileField name={"lastName"} component={"input"} placeholder={'Last Name'} />
                             <ProfileField name={"email"} component={"input"} placeholder={'Email'} />
 
                             <div className="buttons">
-                                <button onClick={(ev)=> ev.preventDefault()} type="submit" disabled={submitting || pristine} >
+                                <button onClick={(ev)=>{ ev.preventDefault();  handleSubmit();} } type="submit" disabled={submitting || pristine} >
                                     Update Profile
                                 </button>
                                 <button

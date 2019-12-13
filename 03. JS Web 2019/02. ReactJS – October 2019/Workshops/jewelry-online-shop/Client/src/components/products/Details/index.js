@@ -11,10 +11,9 @@ function Details() {
     const [user] = useContext(UserContext);
   
     const addToCart = () => {
-        if(user.userId){
-            console.log('cdfdf')
-        //const itemId = window.location.pathname.split('/')[2];
-        userServices.add(user.userId)
+        if(user.userId){ 
+        const itemId = window.location.pathname.split('/')[2];
+        userServices.add(user.userId, itemId)
         .then(res =>console.log(res))
         .catch(err => console.log(err))
             

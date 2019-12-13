@@ -65,8 +65,25 @@ const userServices = {
     })
       .then(res => res.json())
       .catch(err => console.log(err))
+  },
+
+  addToCart: (userId, itemId) => {
+    return fetch(`http://localhost:9999/api/user/add/${userId}`,
+    {
+      method : "PUT",
+      credentials: 'include',
+      body: JSON.stringify(itemId),
+      headers: {
+        'Content-type': 'application/json'
+      }
+
+    })
+    .then(res => res.json)
+    .catch(err=> console.log(err))
   }
 
+  
+};
   /* return fetch(`http://localhost:9999/api/user/add/${userId}`,{
     method : "POST",
     credentials: 'include',
@@ -79,6 +96,6 @@ const userServices = {
   })
   .then(res=> res.text())
 } */
-}
+
 
 export default userServices;

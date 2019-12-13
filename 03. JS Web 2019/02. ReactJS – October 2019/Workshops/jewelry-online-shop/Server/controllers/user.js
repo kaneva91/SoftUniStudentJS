@@ -17,8 +17,8 @@ module.exports = {
 
     put: (req, res, next) => {
         const id = req.params.id;
-        const { username, firstName, lastName, email } = req.body;
-        const query = { username, firstName, lastName, email }
+        const { firstName, lastName, email } = req.body;
+        const query = { firstName, lastName, email }
         models.User.findOneAndUpdate({ _id: id }, query, { new: true })
             .then((updatedUser) => res.send(updatedUser))
             .catch(err => console.log(err))

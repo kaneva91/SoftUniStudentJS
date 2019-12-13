@@ -15,6 +15,6 @@ const productsService = {
       .then(res => res.json());
 
   }
-};
+}
 
 export default productsService;
