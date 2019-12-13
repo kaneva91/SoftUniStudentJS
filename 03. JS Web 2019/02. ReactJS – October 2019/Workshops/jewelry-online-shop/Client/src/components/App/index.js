@@ -12,6 +12,7 @@ import Logout from '../user/Logout';
 import CategoryPage from '../products/CategoryPage';
 import Details from '../products/Details';
 import Profile from '../user/Profile';
+import ProtectedRoute from '../ProtectedRoute';
 
 import styles from './App.module.css';
 
@@ -27,8 +28,8 @@ function App() {
             <Route path="/register" exact component={Register} />}
             <Route path='/login' exact component={Login} />
             <Route path='/about' exact component={Main} />
-            <Route path='/cart' exact component={Main} />
-            <Route path='/profile' exact component={Profile} />
+            <ProtectedRoute path='/cart' exact component={Main} />
+            <ProtectedRoute path='/profile' exact component={Profile} />
             <Route path='/logout' exact component={Logout} />
             <Route path='/bracelets' exact component={() => <CategoryPage categoryName={'bracelets'} />} />
             <Route path='/earings' exact component={() => <CategoryPage categoryName={'earings'} />} />
