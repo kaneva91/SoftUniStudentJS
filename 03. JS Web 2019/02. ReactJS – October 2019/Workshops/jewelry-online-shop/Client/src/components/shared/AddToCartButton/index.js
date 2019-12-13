@@ -1,7 +1,6 @@
 import React from 'react';
 import{Redirect} from 'react-router-dom';
 import styled from './AddToCartButton.module.css';
-import { returnStatement } from '@babel/types';
 
 const add =() =>{
   alert("added")

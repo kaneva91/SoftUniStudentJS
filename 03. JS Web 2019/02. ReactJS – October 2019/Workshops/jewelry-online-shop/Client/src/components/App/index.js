@@ -12,6 +12,7 @@ import Logout from '../user/Logout';
 import CategoryPage from '../products/CategoryPage';
 import Details from '../products/Details';
 import Profile from '../user/Profile';
+import NotFound from '../NotFound';
 import Terms from '../Terms';
 import ProtectedRoute from '../ProtectedRoute';
 
@@ -39,7 +40,7 @@ function App() {
             <Route path='/earings/:id' exact component={Details} />
             <Route path='/keychains/:id' exact component={Details} />
             <Route path='/terms' exact component={Terms} />
-            <Route path='/*' component={Main} />
+            <Route component={NotFound} />
           </Switch>
         </div>
         <Footer />

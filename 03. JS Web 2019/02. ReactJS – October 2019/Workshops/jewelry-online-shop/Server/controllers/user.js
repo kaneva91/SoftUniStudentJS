@@ -29,7 +29,7 @@ module.exports = {
         const itemId = req.body.itemId;
         console.log(userId)
 
-         models.User.findOneAndUpdate({ userId }, { $push: { cart: itemId } }, { new: true })
+         models.User.findOneAndUpdate({ _id:userId }, { $push: { cart: itemId } }, { new: true })
             .then(resp => res.send(resp))
  
 
