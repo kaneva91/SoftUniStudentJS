@@ -36,15 +36,13 @@ const userServices = {
       headers: {
         'Content-type': 'application/json'
       }
-      
     })
       .then(res => console.log(res))
-      .catch(err => console.log(err))
+   
   },
   getProfile: function (id) {
     return fetch(`http://localhost:9999/api/user/${id}`)
       .then(res => res.json())
-      .catch(err => console.log(err))
   },
 
   updateUser(id, data) {
@@ -59,8 +57,6 @@ const userServices = {
     }
     )
       .then(res => res.json())
-      .catch(err => console.log(err))
-
   },
 
   deleteUser: (id) => {
@@ -72,9 +68,12 @@ const userServices = {
       }
     })
       .then(res => res.json())
-      .catch(err => console.log(err))
   },
 
+  getCartItems:(id) =>{
+    return fetch(`http://localhost:9999/api/user/get/${id}`)
+    .then(res=> res.json())
+  }
 };
 
 

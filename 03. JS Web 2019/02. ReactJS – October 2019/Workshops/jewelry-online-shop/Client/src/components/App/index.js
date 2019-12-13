@@ -9,15 +9,16 @@ import Main from '../Main';
 import Register from '../user/Register';
 import Login from '../user/Login';
 import Logout from '../user/Logout';
+import Profile from '../user/Profile';
+import Cart from '../user/Cart';
 import CategoryPage from '../products/CategoryPage';
 import Details from '../products/Details';
-import Profile from '../user/Profile';
 import NotFound from '../NotFound';
 import Terms from '../Terms';
+
 import ProtectedRoute from '../ProtectedRoute';
 
 import styles from './App.module.css';
-
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
             <Route path="/register" exact component={Register} />}
             <Route path='/login' exact component={Login} />
             <Route path='/about' exact component={Main} />
-            <ProtectedRoute path='/cart' exact component={Main} />
+            <ProtectedRoute path='/cart' exact component={Cart} />
             <ProtectedRoute path='/profile' exact component={Profile} />
             <Route path='/logout' exact component={Logout} />
             <Route path='/bracelets' exact component={() => <CategoryPage categoryName={'bracelets'} />} />
@@ -46,10 +47,7 @@ function App() {
         <Footer />
       </BrowserRouter >
     </UserProvider>
-
   )
-
-
 }
 
 export default App;

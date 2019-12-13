@@ -35,6 +35,18 @@ module.exports = {
 
     },
 
+    getCartItems: (req,res,next) =>{
+        const userId = req.params.id;
+        models.User.find({_id:userId})
+        .then(data=>{
+            const {cart} = data[0]
+            console.log( cart)
+            console.log(data)
+            //res.send(cartItems)
+            res.send(cart)
+        })
+    },
+
     delete: (req, res, next) => {
         const id = req.params.id;
         models.User.deleteOne({ _id: id })

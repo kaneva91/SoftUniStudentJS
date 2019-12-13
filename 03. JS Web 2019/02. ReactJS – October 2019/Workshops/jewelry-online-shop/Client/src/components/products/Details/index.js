@@ -11,13 +11,14 @@ function Details() {
     const [user] = useContext(UserContext);
   
     const addToCart = () => {
-        if(user.userId){ 
-        const itemId = window.location.pathname.split('/')[2];
+       const itemId = window.location.pathname.split('/')[2];
+       
+       user.userId && 
         userServices.addItem(user.userId, itemId)
         .then(res =>console.log("response", res))
         .catch(err => console.log(err))
             
-        }
+        
     }
     const path = window.location.pathname;
     

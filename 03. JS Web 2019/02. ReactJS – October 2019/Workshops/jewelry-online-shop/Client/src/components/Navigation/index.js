@@ -4,7 +4,6 @@ import UserContext from '../ContextWrapper';
 
 import styles from './Navigation.module.css';
 
-
 function Navigation() {
     const [user] = useContext(UserContext);
     return (
@@ -33,7 +32,6 @@ function Navigation() {
                         </Fragment>}
                     <li><Link to="/about">About</Link></li>
                 </ul>
-
             </div>
             <div className={styles.search}>
                 <input type="text"></input>
@@ -41,7 +39,6 @@ function Navigation() {
             <div className={styles.greating}>
                 {!!user.username ? `Welcome, ${user.username}!` : ' Welcome, Guest!'}</div>
         </nav>
-
     )
 }
 
