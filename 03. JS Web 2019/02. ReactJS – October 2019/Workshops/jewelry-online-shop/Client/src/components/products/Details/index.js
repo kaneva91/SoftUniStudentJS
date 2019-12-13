@@ -13,8 +13,8 @@ function Details() {
     const addToCart = () => {
         if(user.userId){ 
         const itemId = window.location.pathname.split('/')[2];
-        userServices.add(user.userId, itemId)
-        .then(res =>console.log(res))
+        userServices.addItem(user.userId, itemId)
+        .then(res =>console.log("response", res))
         .catch(err => console.log(err))
             
         }

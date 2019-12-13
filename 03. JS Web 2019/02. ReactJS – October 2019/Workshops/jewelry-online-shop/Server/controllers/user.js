@@ -24,6 +24,17 @@ module.exports = {
             .catch(err => console.log(err))
     },
 
+    add: (req, res, next) => {
+        const userId = req.params.id;
+        const itemId = req.body.itemId;
+        console.log(userId)
+
+         models.User.findOneAndUpdate({ userId }, { $push: { cart: itemId } }, { new: true })
+            .then(resp => res.send(resp))
+ 
+
+    },
+
     delete: (req, res, next) => {
         const id = req.params.id;
         models.User.deleteOne({ _id: id })

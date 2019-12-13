@@ -13,7 +13,7 @@ router.get('/:id', controllers.user.get);
 
 router.put('/:id', controllers.user.put);
 
-//router.get('/add/:id', controllers.user.add); //add item to cart
+router.put('/add/:id', controllers.user.add); //add item to cart
 
 router.delete('/:id', controllers.user.delete);
 

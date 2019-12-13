@@ -36,7 +36,8 @@ const userSchema = new Schema({
     },
     cart: [{
         type:ObjectId,
-        required: true
+        required: true,
+        ref: ['Bracelet', 'Keychain', 'Earings']
     }]
   
 });
