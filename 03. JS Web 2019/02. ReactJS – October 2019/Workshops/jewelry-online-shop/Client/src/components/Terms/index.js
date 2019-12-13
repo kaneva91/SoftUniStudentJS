@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import styles from './Terms.module.css';
 
+
 function Terms() {
     return (<Fragment>
 

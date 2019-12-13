@@ -4,6 +4,7 @@ import UserContext from '../ContextWrapper';
 
 import styles from './Navigation.module.css';
 
+
 function Navigation() {
     const [user] = useContext(UserContext);
     return (

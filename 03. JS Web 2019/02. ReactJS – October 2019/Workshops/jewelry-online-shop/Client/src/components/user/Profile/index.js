@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 import styles from './Profile.module.css';
 
+
 function Profile() {
 
     const history = useHistory();
@@ -24,11 +25,8 @@ function Profile() {
 
     const updateProfile = values => {
         userServices.updateUser(user.userId, values)
-            .then(res => {
-               //todo
-            })
+            .then(() => history.push('/profile')) //dfgf
             .catch(err => console.log(err))
-
     }
 
     const deleteUserProfile = () => {
@@ -42,12 +40,11 @@ function Profile() {
 
     return (
         dataUser ? <Fragment>
-
             <h1 className={styles.heading}>User Details</h1>
             <Form
                 onSubmit={updateProfile}
                 initialValues={dataUser}
-                render={({ handleSubmit, pristine, form, submitting, values }) => {
+                render={({ handleSubmit, pristine, form, submitting }) => {
                     return (
                         <form onSubmit={handleSubmit}>
                             <ProfileField name={"firstName"} component={"input"} placeholder={'First Name'} />
@@ -55,7 +52,7 @@ function Profile() {
                             <ProfileField name={"email"} component={"input"} placeholder={'Email'} />
 
                             <div className="buttons">
-                                <button onClick={(ev)=>{ ev.preventDefault();  handleSubmit();} } type="submit" disabled={submitting || pristine} >
+                                <button onClick={(ev) => { ev.preventDefault(); handleSubmit(); }} type="submit" disabled={submitting || pristine} >
                                     Update Profile
                                 </button>
                                 <button

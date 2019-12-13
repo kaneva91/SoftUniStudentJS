@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import styles from './Main.module.css';
 import ProductCategory from '../products/ProductCategory';
 
+
 function Main() {
     return (
         <Fragment>

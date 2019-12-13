@@ -8,9 +8,7 @@ import InputField from '../../shared/InputField';
 import userServices from '../../../services/user-services';
 
 
-
 function Register() {
-
 
   const [hasRegistred, setRegisterStatus] = useState(false);
   const [error, setErroStatus] = useState('');
@@ -36,7 +34,6 @@ function Register() {
         if (!values.username) {
           errors.username = "Required!";
         }
-
         if (!values.password) {
           errors.password = "Required!";
         }
@@ -56,8 +53,8 @@ function Register() {
         }
         return errors;
       }}
-      render={({ handleSubmit, submitting }) => (
 
+      render={({ handleSubmit, submitting }) => (
         <form className={styles['Form-Wrapper']}>
           <InputField name="username" label={'Username'}  type='text' />
           <InputField name="password" label={'Password'} type='password'  />
@@ -83,9 +80,7 @@ function Register() {
           </div>
         </form>
       )}
-    />
-  )
-
+    />)
 }
 
 export default Register;

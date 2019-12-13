@@ -2,6 +2,7 @@ import React  from 'react';
 import{useHistory} from 'react-router-dom';
 import styles from './NotFound.module.css';
 
+
 function NotFound() {
     const history = useHistory();
     return (

@@ -16,33 +16,27 @@ function Details() {
        user.userId && 
         userServices.addItem(user.userId, itemId)
         .then(res =>console.log("response", res))
-        .catch(err => console.log(err))
-            
-        
+        .catch(err => console.log(err))          
     }
+
     const path = window.location.pathname;
     
     useEffect(() => {
         productService.load(path)
-            .then(res => {
-                setItemState(res)
-            })
+            .then(res => 
+                setItemState(res))
     }, [])
 
     return (
-
         <Fragment>
-
-            {item && <section className={styles['image-wrapper']}>
-
+            {item && 
+            <section className={styles['image-wrapper']}>
                 <Fragment>
                     <img className={styles.image} src={item.url} />
                 </Fragment>
-
             </section>}
-
-            {item && <section className={styles['details-wrapper']}>
-
+            {item && 
+            <section className={styles['details-wrapper']}>
                 <Fragment>
                     <h3>{item.name}</h3>
                     <p>{item.description}</p>
@@ -50,7 +44,6 @@ function Details() {
                 </Fragment>
             </section>
             }
-
             <div>
                 <button className={styles.button} onClick={addToCart}>Add to Cart</button>
             </div>

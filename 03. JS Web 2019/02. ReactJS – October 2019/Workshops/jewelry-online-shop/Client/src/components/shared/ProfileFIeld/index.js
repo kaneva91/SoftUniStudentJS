@@ -1,7 +1,9 @@
 import React from 'react';
 import { Field } from 'react-final-form';
 
+
 function ProfileField({ name, component, placeholder }) {
+    
     return (
         <div>
             <label>{`${placeholder}: `}</label>

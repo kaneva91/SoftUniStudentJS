@@ -33,6 +33,7 @@ input {margin-left: 5%;
    border:  1px solid black;
    
 }
+
 .input-error, .fetch-error{
     font-style: italic;
     text-align: center;

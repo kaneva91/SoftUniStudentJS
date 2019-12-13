@@ -3,7 +3,9 @@ import React from 'react';
 import { Field } from "react-final-form";
 import styles from '../styles/RegisterAndLogin.module.css';
 
-const InputField = ({ name, label, type, placeholder }) => {
+
+const InputField = ({ name, label, type }) => {
+
     return (<Field name={name} >
         {({ input, meta }) => (
             <div>

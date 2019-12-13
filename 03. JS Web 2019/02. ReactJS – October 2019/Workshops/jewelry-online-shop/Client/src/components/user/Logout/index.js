@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom';
 import userService from '../../../services/user-services';
 import {UserContext } from '../../ContextWrapper';
 
+
 function Logout (){
     const[user, setUserStatus] = useContext(UserContext);
 
