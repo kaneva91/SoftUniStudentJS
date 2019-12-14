@@ -1,13 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styles from './Footer.module.css';
-import Contacts from '../shared/Contacts';
+import Contacts from '../shared/Contacts'
 
 
 function Footer (){
     return(
         <footer>
-          
+            <div>
+                <Contacts/>
+            </div>
             <div className = {styles.products}>
                 <Link to="/"> <h4>Product Categories:</h4></Link>
                 <Link to="/bracelets"> <p>Bracelets</p></Link>

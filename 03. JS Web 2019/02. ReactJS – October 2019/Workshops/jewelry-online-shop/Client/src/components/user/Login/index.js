@@ -40,8 +40,8 @@ function Login() {
       render={({ handleSubmit, submitting }) => (
 
         <form className={styles['Form-Wrapper']}>
-          <InputField name="username" label={'Username:'} placeholder={'Username'} type='text' />
-          <InputField name="password" label={'Password:'} type='password' placeholder={'Password'} />
+          <InputField name="username" label={'Username'} placeholder={'Username'} type='text' />
+          <InputField name="password" label={'Password'} type='password' placeholder={'Password'} />
 
           <div className={styles['fetch-error']}>
             {error ? error : ""}

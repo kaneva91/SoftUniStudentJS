@@ -29,7 +29,7 @@ function App() {
         <Navigation />
         <div className={styles['main-container']}>
           <Switch>
-            <Route exact path='/' exact component={Main} />
+            <Route path='/' exact component={Main} />
             <Route path="/register" exact component={Register} />}
             <Route path='/login' exact component={Login} />
             <Route path='/about' exact component={About} />

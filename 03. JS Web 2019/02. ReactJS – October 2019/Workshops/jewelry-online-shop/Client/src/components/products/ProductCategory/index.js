@@ -10,7 +10,7 @@ function ProductCategory({ name, imgPath, link }) {
             <h3>
                 {name}
             </h3>
-            <img src={imgPath} alt="category-image" />
+            <img src={imgPath} alt="category" />
         </Link>
     )
 }

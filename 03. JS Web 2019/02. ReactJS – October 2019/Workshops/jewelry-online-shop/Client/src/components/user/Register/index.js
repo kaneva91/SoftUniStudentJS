@@ -61,7 +61,7 @@ function Register() {
           <InputField name="rePassword" label={'Re-Password'}  type='password' />
           <InputField name="firstName" label={'First Name'} type='text' />
           <InputField name="lastName" label={'Last Name'} type='text' />
-          <InputField name="email" label={'Email:'} type='email' placeholder={'mail@example.com'} />
+          <InputField name="email" label={'Email'} type='email' placeholder={'mail@example.com'} />
 
           <div className={styles['fetch-error']}>
             {error ? error : ''}

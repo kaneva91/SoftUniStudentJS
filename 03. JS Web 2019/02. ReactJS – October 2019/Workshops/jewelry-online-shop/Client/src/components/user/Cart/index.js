@@ -17,12 +17,12 @@ function Cart() {
             sertCatItems(res)
             console.log(cartItems)})
         .catch(err => console.log(err))
-    },[])
+    },[]);
 
     return (
         <Fragment>
              <h1 className={styles['page-heading']}>Items in Your Cart</h1>
-            { cartItems.length != 0 ? 
+            { cartItems.length !== 0 ? 
             <CartTable items={cartItems}/> :  
          <div> Your cart is empty</div>}
         </Fragment>

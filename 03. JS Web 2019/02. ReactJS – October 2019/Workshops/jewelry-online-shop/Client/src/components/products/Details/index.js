@@ -33,7 +33,7 @@ function Details() {
             {item &&
                 <section className={styles['image-wrapper']}>
                     <Fragment>
-                        <img className={styles.image} src={item.url} />
+                        <img className={styles.image} src={item.url} alt="item"/>
                     </Fragment>
                 </section>}
             {item &&
