@@ -3,7 +3,6 @@ import userServices from '../../../services/user-services';
 import { UserContext } from '../../ContextWrapper';
 import{useHistory} from 'react-router-dom';
 
-
 import styles from './Cart.module.css';
 
 
@@ -81,7 +80,6 @@ function Cart() {
                 :
                 <div className={styles.empty}> Your cart is empty</div>}
         </Fragment>
-
     )
 }
 

@@ -25,10 +25,10 @@ function Profile() {
 
     const updateProfile = values => {
         userServices.updateUser(user.userId, values)
-            .then(() => history.push('/profile')) //dfgf
+            .then(() => history.push('/')) 
             .catch(err => console.log(err))
     }
-
+    
     const deleteUserProfile = () => {
         userServices.deleteUser(user.userId)
             .then(() => {
