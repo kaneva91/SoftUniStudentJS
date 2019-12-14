@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect, useContext } from 'react';
+import {useHistory} from 'react-router-dom';
 import productService from '../../../services/products-services';
 import userServices from '../../../services/user-services';
 import styles from './Details.module.css';
@@ -6,22 +7,23 @@ import { UserContext } from '../../ContextWrapper';
 
 
 function Details() {
+    const history = useHistory();
 
     const [item, setItemState] = useState(null);
     const [user] = useContext(UserContext);
   
     const addToCart = () => {
-       const itemId = window.location.pathname.split('/')[2];
-       
+       user.loggedIn ?
        user.userId && 
-        userServices.addItem(user.userId, itemId)
+        userServices.addItem(user.userId, item)
         .then(res =>console.log("response", res))
-        .catch(err => console.log(err))          
+        .catch(err => console.log(err)) 
+        :
+        history.push('/login');
     }
 
-    const path = window.location.pathname;
-    
     useEffect(() => {
+        const path = window.location.pathname;
         productService.load(path)
             .then(res => 
                 setItemState(res))

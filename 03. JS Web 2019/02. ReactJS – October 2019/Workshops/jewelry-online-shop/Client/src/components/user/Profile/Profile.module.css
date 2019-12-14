@@ -1,5 +1,17 @@
 .heading{
     text-align : center;
-    margin: 20px;
+    margin: 3%;
+}
+.buttons{
 
+    display:flex;
+   
+}
+
+form{
+    font-size: 25px;
+}
+
+input{
+    margin-bottom: 2%;
 }

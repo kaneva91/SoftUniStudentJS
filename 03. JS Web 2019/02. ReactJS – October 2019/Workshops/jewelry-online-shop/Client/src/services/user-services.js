@@ -28,16 +28,16 @@ const userServices = {
     }).then(res => res.text());
   },
 
-   addItem: function (userId,itemId) {
+   addItem: function (userId,item) {
     return fetch(`http://localhost:9999/api/user/add/${userId}`, {
       method: 'PUT',
       credentials: 'include',
-      body: JSON.stringify({itemId}),
+      body: JSON.stringify(item),
       headers: {
         'Content-type': 'application/json'
       }
     })
-      .then(res => console.log(res))
+      .then(res => res.json())
    
   },
   getProfile: function (id) {

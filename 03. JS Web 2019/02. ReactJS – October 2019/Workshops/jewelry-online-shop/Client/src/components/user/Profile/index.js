@@ -51,7 +51,7 @@ function Profile() {
                             <ProfileField name={"lastName"} component={"input"} placeholder={'Last Name'} />
                             <ProfileField name={"email"} component={"input"} placeholder={'Email'} />
 
-                            <div className="buttons">
+                            <div className={styles.buttons}>
                                 <button onClick={(ev) => { ev.preventDefault(); handleSubmit(); }} type="submit" disabled={submitting || pristine} >
                                     Update Profile
                                 </button>

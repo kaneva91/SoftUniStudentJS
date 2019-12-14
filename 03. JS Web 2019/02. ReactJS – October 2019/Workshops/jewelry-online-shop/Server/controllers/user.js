@@ -26,10 +26,10 @@ module.exports = {
 
     add: (req, res, next) => {
         const userId = req.params.id;
-        const itemId = req.body.itemId;
-        console.log(userId)
+        const item = JSON.stringify(req.body);
+        console.log(item)
 
-         models.User.findOneAndUpdate({ _id:userId }, { $push: { cart: itemId } }, { new: true })
+         models.User.findOneAndUpdate({ _id:userId }, { $push: { cart: item } }, { new: true })
             .then(resp => res.send(resp))
  
 
