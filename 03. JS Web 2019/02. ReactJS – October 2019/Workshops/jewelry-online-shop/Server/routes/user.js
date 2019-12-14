@@ -19,4 +19,6 @@ router.get('/get/:id', controllers.user.getCartItems); //get
 
 router.delete('/:id', controllers.user.delete);
 
+router.put('/deleteCart/:id', controllers.user.deleteCart);
+
 module.exports = router;

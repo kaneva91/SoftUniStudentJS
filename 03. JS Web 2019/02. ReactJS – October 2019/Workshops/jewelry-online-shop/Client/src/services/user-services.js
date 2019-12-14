@@ -29,7 +29,7 @@ const userServices = {
     }).then(res => res.text());
   },
 
-   addItem: function (userId,item) {
+  addItem: function (userId, item) {
     return fetch(`${mainPath}add/${userId}`, {
       method: 'PUT',
       credentials: 'include',
@@ -39,7 +39,7 @@ const userServices = {
       }
     })
       .then(res => res.json())
-   
+
   },
   getProfile: function (id) {
     return fetch(`${mainPath}${id}`)
@@ -71,9 +71,20 @@ const userServices = {
       .then(res => res.json())
   },
 
-  getCartItems:(id) =>{
+  getCartItems: (id) => {
     return fetch(`${mainPath}get/${id}`)
-    .then(res=> res.json())
+      .then(res => res.json())
+  },
+
+  deleteCart: (id) => {
+    return fetch(`${mainPath}deleteCart/${id}`,{
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+          'Content-type': 'application/json'
+        }
+      })
+      .then(res => res.json())
   }
 };
 
