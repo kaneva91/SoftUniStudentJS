@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
-import styles from './Terms.module.css';
+import React from 'react';
+import styles from '../shared/styles/AboutAndTerms.module.css';
 
 
 function Terms() {
-    return (<Fragment>
+    return (
 
-        <article className={styles.content}>
+        <article>
             <div>
-                <h1>Terms and Conditions</h1>
+                <h1 className={styles.heading}>Terms and Conditions</h1>
                 <p>
                     These Terms of Service govern the relationship between Online Jewerly Shop as a seller on the one hand, and users of the website and services located in the localhost: 300 domain as a buyer on the other. These Terms bind all users who, by clicking on any site, link or button located on the Online Jewerly Shop pages (except for the link to these Terms and Conditions), agree, fully accept and undertake to comply with these "General" terms. "
                 </p>
@@ -38,9 +38,7 @@ function Terms() {
                 </p>
             </div>
         </article>
-    </Fragment>)
-
-
+    )
 }
 
 export default Terms;

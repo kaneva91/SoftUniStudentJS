@@ -1,16 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styles from './Footer.module.css';
+import Contacts from '../shared/Contacts';
 
 
 function Footer (){
     return(
         <footer>
-            <div className = {styles.contacts}>
-                <h4>Contacts:</h4>
-                <p>Tel: +359 878 123 123</p>
-                <p className={styles.email}>Email: jewerlyonline@example.com</p>
-            </div>
+          
             <div className = {styles.products}>
                 <Link to="/"> <h4>Product Categories:</h4></Link>
                 <Link to="/bracelets"> <p>Bracelets</p></Link>

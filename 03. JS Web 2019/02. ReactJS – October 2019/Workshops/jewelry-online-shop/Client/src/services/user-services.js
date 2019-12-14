@@ -1,7 +1,8 @@
+const mainPath = 'http://localhost:9999/api/user/';
 const userServices = {
   register: function (data) {
 
-    return fetch(`http://localhost:9999/api/user/register`, {
+    return fetch(`${mainPath}register`, {
       body: JSON.stringify(data),
       method: 'POST',
       headers: {
@@ -11,7 +12,7 @@ const userServices = {
   },
 
   login: function (data) {
-    return fetch(`http://localhost:9999/api/user/login`, {
+    return fetch(`${mainPath}login`, {
       body: JSON.stringify(data),
       method: 'POST',
       headers: {
@@ -22,14 +23,14 @@ const userServices = {
   },
 
   logout: function () {
-    return fetch(`http://localhost:9999/api/user/logout`, {
+    return fetch(`${mainPath}logout`, {
       method: 'POST',
       credentials: 'include'
     }).then(res => res.text());
   },
 
    addItem: function (userId,item) {
-    return fetch(`http://localhost:9999/api/user/add/${userId}`, {
+    return fetch(`${mainPath}add/${userId}`, {
       method: 'PUT',
       credentials: 'include',
       body: JSON.stringify(item),
@@ -41,13 +42,13 @@ const userServices = {
    
   },
   getProfile: function (id) {
-    return fetch(`http://localhost:9999/api/user/${id}`)
+    return fetch(`${mainPath}${id}`)
       .then(res => res.json())
   },
 
   updateUser(id, data) {
     console.log(id, data)
-    return fetch(`http://localhost:9999/api/user/${id}`, {
+    return fetch(`${mainPath}${id}`, {
       method: 'PUT',
       credentials: 'include',
       body: JSON.stringify(data),
@@ -60,7 +61,7 @@ const userServices = {
   },
 
   deleteUser: (id) => {
-    return fetch(`http://localhost:9999/api/user/${id}`, {
+    return fetch(`${mainPath}${id}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
@@ -71,7 +72,7 @@ const userServices = {
   },
 
   getCartItems:(id) =>{
-    return fetch(`http://localhost:9999/api/user/get/${id}`)
+    return fetch(`${mainPath}get/${id}`)
     .then(res=> res.json())
   }
 };

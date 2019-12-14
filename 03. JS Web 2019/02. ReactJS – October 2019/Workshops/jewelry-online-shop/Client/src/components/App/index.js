@@ -15,6 +15,7 @@ import CategoryPage from '../products/CategoryPage';
 import Details from '../products/Details';
 import NotFound from '../NotFound';
 import Terms from '../Terms';
+import About from '../About';
 
 import ProtectedRoute from '../ProtectedRoute';
 
@@ -31,7 +32,7 @@ function App() {
             <Route exact path='/' exact component={Main} />
             <Route path="/register" exact component={Register} />}
             <Route path='/login' exact component={Login} />
-            <Route path='/about' exact component={Main} />
+            <Route path='/about' exact component={About} />
             <ProtectedRoute path='/cart' exact component={Cart} />
             <ProtectedRoute path='/profile' exact component={Profile} />
             <Route path='/logout' exact component={Logout} />

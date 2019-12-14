@@ -11,16 +11,16 @@ function CartTable({items}) {
                 <div className={styles.Cell}>
                     <p>Name</p>
                 </div>
-                <div classeName={styles.Cell}>
+                <div className={styles.Cell}>
                     <p>Price</p>
                 </div>
             </div>
         {
-        items.map(itemData => {
+         items && items.map(itemData => {
             const item=JSON.parse(itemData)
     
             return(
-                <div className={styles.Row} key={item._id}>
+                <div className={styles.Row} key={item.url}>
                 <div className={styles.Cell}>
                     <p>
                         <img src={item.url} alt="cart-item"/>

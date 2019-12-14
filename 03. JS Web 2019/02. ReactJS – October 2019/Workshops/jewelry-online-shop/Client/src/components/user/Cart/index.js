@@ -9,21 +9,22 @@ import styles from './Cart.module.css';
 function Cart() {
 
     const [user] = useContext(UserContext);
-    const [cartItems,sertCatItems] = useState(null);
+    const [cartItems,sertCatItems] = useState([]);
 
     useEffect(()=>{
        user &&  userServices.getCartItems(user.userId)
         .then(res => {
             sertCatItems(res)
-            console.log(res)})
+            console.log(cartItems)})
         .catch(err => console.log(err))
     },[])
 
     return (
         <Fragment>
              <h1 className={styles['page-heading']}>Items in Your Cart</h1>
-            { cartItems ? 
-            <CartTable items={cartItems}/> : <div> sorry</div>}
+            { cartItems.length != 0 ? 
+            <CartTable items={cartItems}/> :  
+         <div> Your cart is empty</div>}
         </Fragment>
        
     )
