@@ -47,7 +47,7 @@ module.exports = {
         const userId = req.params.id;
         console.log(userId)
         models.User.findOneAndUpdate({ _id:userId }, { cart : [] } )
-        .then(resp => history.push('/'))
+        .then(resp=>res.send(resp))
     },
 
     delete: (req, res, next) => {

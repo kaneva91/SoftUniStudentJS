@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, Fragment } from 'react';
 import userServices from '../../../services/user-services';
 import { UserContext } from '../../ContextWrapper';
-import{useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import styles from './Cart.module.css';
 
@@ -10,7 +10,7 @@ function Cart() {
 
     const [user] = useContext(UserContext);
     const [cartItems, sertCatItems] = useState([]);
-    const history=useHistory();
+    const history = useHistory();
     let totalPrice = 0;
 
     useEffect(() => {
@@ -21,8 +21,9 @@ function Cart() {
 
     const checkOut = () => {
         user && userServices.deleteCart(user.userId)
-            .then((resp) => {console.log('alabala    ')
-          })
+            .then((resp) => {
+                history.push('/')
+            })
             .catch(err => console.log(err))
     }
 
@@ -79,6 +80,7 @@ function Cart() {
                 </div>
                 :
                 <div className={styles.empty}> Your cart is empty</div>}
+               
         </Fragment>
     )
 }
