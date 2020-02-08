@@ -1,0 +1,17 @@
+<div class="col-md-4"></div>
+<div class="col-md-4">
+    <h1 class="text-italic">Login</h1>
+    <form action="">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input #email type="text" id="email" class="form-control" placeholder="john.doe@domain.bg">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input #password type="password" id="password" class="form-control" placeholder="password">
+        </div>
+
+        <button type="button" class="btn btn-success" (click)="loginHandler(email.value, password.value)">Login</button>
+    </form>
+    <p>Don't have account yet? <a routerLink="/user/register" >Register</a>.</p>
+</div>
