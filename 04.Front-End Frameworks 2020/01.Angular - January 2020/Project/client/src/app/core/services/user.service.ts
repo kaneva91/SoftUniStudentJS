@@ -20,18 +20,18 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   regiter(data: IUser): Observable<IUser> {
-    return this.http.post<IUser>('http://localhost:9999/api/user/register', data, {withCredentials: true})
+    return this.http.post<IUser>('user/register', data, {withCredentials: true})
   }
 
   login(data: IUser) {
-    return this.http.post<IUser>('http://localhost:9999/api/user/login', data).pipe(
+    return this.http.post<IUser>('/user/login', data).pipe(
       retry(1),
       catchError(this.handleError)
     );
   }
 
   loguot(){
-    return this.http.get<IUser>('http://localhost:9999/api/user/logout')
+    return this.http.get<IUser>('/user/logout')
   }
 
   handleError(error) {

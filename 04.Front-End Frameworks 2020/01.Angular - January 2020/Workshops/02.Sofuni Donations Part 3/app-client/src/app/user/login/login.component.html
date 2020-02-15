@@ -1,0 +1,42 @@
+<div class="col-md-4"></div>
+<div class="col-md-4">
+    <h1 class="text-italic">Login</h1>
+
+    <form #loginForm="ngForm" (ngSubmit)="loginHandler(emailInput.value, passwordInput.value)">
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input #emailInput="ngModel" ngModel name="email" required pattern="[0-9a-zA-Z\._]{6,}@gmail\.(com|bg)" type="text"
+                id="email" class="form-control" placeholder="john.doe@domain.bg">
+
+            <p *ngIf="emailInput.errors?.pattern && emailInput.touched" class="errors">
+                Invalid email!
+            </p>
+
+           <!--  <app-errors-email-validation emailInput="emailInput"></app-errors-email-validation> -->
+
+            <p *ngIf="!emailInput.errors && emailInput.touched" class="passed">
+                Validation passed!
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input #passwordInput="ngModel" ngModel name="password" type="password" id="password" required minlength="6"
+                class="form-control" placeholder="password">
+
+            <p *ngIf="passwordInput?.errors  && passwordInput.touched" class="errors">
+                Invalid password!
+            </p>
+             <p *ngIf="!passwordInput.errors && emailInput.touched" class="passed">
+                Validation passed!
+            </p>  
+        </div>
+    
+        <button [disabled]="loginForm.invalid" class="btn btn-success">Login</button>
+
+        <p *ngIf="loginForm.invalid && loginForm.touched" class="errors">
+            You cannot continue until you provide a valid user data!
+        </p>
+    </form>
+    <p>Don't have account yet? <a routerLink="/user/register">Register</a>.</p>
+</div>

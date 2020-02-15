@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h1 class="text-italic">Creating my own cause</h1>
+                <form [formGroup]="form">
+                    <div class="form-group">
+                        <label for="cause">Cause</label>
+                        <input type="text" id="cause" formControlName="cause" class="form-control" placeholder="My cause is ...">
+                        <p class="errors" *ngIf="form.get('cause').invalid && form.get('cause').touched">
+                            Please provide a valid cause name!
+                        </p>
+                        <p class="passed" *ngIf="!form.get('cause').invalid && form.get('cause').touched">
+                            Validation passed!
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label for="neededAmount">Needed amount</label>
+                        <input type="number" formControlName="neededAmount" min="10" id="neededAmount" class="form-control"
+                            placeholder="I need ...">
+                            <p class="errors" *ngIf="form.get('neededAmount').invalid && form.get('neededAmount').touched">
+                                Needed amount must be equal or greater ro 10$!
+                            </p>
+                            <p class="passed" *ngIf="!form.get('neededAmount').invalid && form.get('neededAmount').touched">
+                                Validation passed!
+                            </p>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea formControlName="description" id="description" cols="30" rows="10"
+                            class="form-control cause-description"
+                            placeholder="A little bit information about this cause. What is meaning to you?"></textarea>
+                            <p class="errors" *ngIf="form.get('description').invalid && form.get('description').touched">
+                               Cause description must be at least 10 characters long!
+                            </p>
+                            <p class="passed" *ngIf="!form.get('description').invalid && form.get('description').touched">
+                                Validation passed!
+                            </p>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUrl">Image URL</label>
+                        <input type="text" formControlName="imageUrl" pattern="(http|https):\/\/" id="imageUrl" class="form-control" placeholder="https://...">
+                        <p class="errors" *ngIf="form.get('imageUrl').invalid && form.get('imageUrl').touched">
+                            Please provide a valid image URL!
+                         </p>
+                         <p class="passed" *ngIf="!form.get('imageUrl').invalid && form.get('imageUrl').touched">
+                             Validation passed!
+                         </p>
+                    </div>
+                    <button [disabled]="form.invalid" class="btn btn-primary">Create</button>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
