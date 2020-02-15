@@ -1,0 +1,6 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginHandler(loginForm.value)" class="login-form">
+  <input formControlName="email" type="email" class="login-username" autofocus="true" placeholder="Email" />
+  <input formControlName="password" type="password" class="login-username" autofocus="true" placeholder="Password" />
+  <button [disabled]="loginForm.invalid" class="login-submit">Login</button>
+</form>
+<div class="underlay-photo"></div>

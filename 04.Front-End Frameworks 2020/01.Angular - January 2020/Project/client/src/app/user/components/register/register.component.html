@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="registerHandler(form.value)" class="login-form">
+    <input formControlName="email" type="email" class="login-username" autofocus="true"  placeholder="Email" />
+    <input formControlName="firstName" type="text" class="login-username" autofocus="true"  placeholder="First Name" />
+    <input formControlName="lastName" type="text" class="login-username" autofocus="true" placeholder="Last Name" />
+    <div formGroupName="passwords">
+      <input formControlName="password" appPasswordMatch type="password" class="login-username" autofocus="true"  placeholder="Password" />
+    <input formControlName="rePassword" type="password" class="login-username" autofocus="true"placeholder="Re-Password" />
+    </div>
+    <button [disabled]="form.invalid" class="login-submit" >Register</button>
+ 
+  </form>
+  <div class="underlay-photo"></div>
+ 

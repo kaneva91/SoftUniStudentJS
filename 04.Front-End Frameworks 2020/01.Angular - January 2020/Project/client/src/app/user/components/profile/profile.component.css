@@ -1,0 +1,17 @@
+.wrapper{
+    border: 2px solid red;
+    height: 70%;
+    display: flex;
+}
+.left-side, .rigth-side{
+    border: 1px solid green;
+    display:  inline-block;
+    flex-direction: column;
+    width: 50%;
+}
+.left-side{
+    background-image: url('/assets/profile.jpg');
+    background-repeat: no-repeat, repeat;
+    object-fit: cover;
+
+}

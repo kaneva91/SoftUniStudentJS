@@ -1,0 +1,44 @@
+<!-- <nav class="navigation-bar">
+    <img class="logo" src="/assets/logo.png">
+    <ul>
+        <li><a routerLink="">Home</a></li>
+        <li><a routerLink="/menu">Menu</a></li>
+        <li><a routerLink="/user/about">About</a></li>
+
+        <ng-container *ngIf="isLoggedIn; then loggedIn; else loggedOut">
+        </ng-container>
+        <ng-template #loggedIn>   
+                <li><a routerLink="/user/login">Profile</a></li>
+                <li><a routerLink="/user/register">Cart</a></li>
+        </ng-template>
+        <ng-template #loggedOut>        
+                <li><a routerLink="/user/login">Login</a></li>
+                <li><a routerLink="/user/register">Register</a></li>
+        </ng-template> class="nav-links"
+    </ul>
+</nav> -->
+
+
+<nav class="navbar">
+    <span class="navbar-toggle" id="js-navbar-toggle">
+       <img src="/assets/menu.png"/>
+    </span>
+    <a href="#" class="logo"><img src="/assets/logo.png"></a>
+    <ul class="main-nav" id="js-menu" >
+        <li><a routerLink="" class="nav-links" >Home</a></li>
+        <li><a routerLink="/menu" class="nav-links">Menu</a></li>
+        <li><a routerLink="/user/about" class="nav-links">About</a></li>
+
+        <ng-container *ngIf="isLoggedIn; then loggedIn; else loggedOut">
+        </ng-container>
+        <ng-template #loggedIn>   
+                <li><a routerLink="/user/login" class="nav-links">Profile</a></li>
+                <li><a routerLink="/user/register" class="nav-links">Cart</a></li>
+        </ng-template>
+        <ng-template #loggedOut>        
+                <li><a routerLink="/user/login" class="nav-links">Login</a></li>
+                <li><a routerLink="/user/register" class="nav-links">Register</a></li>
+        </ng-template> 
+         
+    </ul>
+</nav>
