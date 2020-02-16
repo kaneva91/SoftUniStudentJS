@@ -20,7 +20,8 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   regiter(data: IUser): Observable<IUser> {
-    return this.http.post<IUser>('user/register', data, {withCredentials: true})
+    return this.http.post<IUser>('/user/register', data)
+
   }
 
   login(data: IUser) {

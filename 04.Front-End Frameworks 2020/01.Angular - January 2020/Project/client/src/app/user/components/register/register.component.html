@@ -1,13 +1,60 @@
-<form [formGroup]="form" (ngSubmit)="registerHandler(form.value)" class="login-form">
-    <input formControlName="email" type="email" class="login-username" autofocus="true"  placeholder="Email" />
-    <input formControlName="firstName" type="text" class="login-username" autofocus="true"  placeholder="First Name" />
-    <input formControlName="lastName" type="text" class="login-username" autofocus="true" placeholder="Last Name" />
-    <div formGroupName="passwords">
-      <input formControlName="password" appPasswordMatch type="password" class="login-username" autofocus="true"  placeholder="Password" />
-    <input formControlName="rePassword" type="password" class="login-username" autofocus="true"placeholder="Re-Password" />
+<div class="form-wrapper">
+  <h1>Register Form</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="registerHandler(registerForm.value)" >
+
+    <div>
+      <label for="email">Email*</label>
+      <input formControlName="email" type="email" id="email" placeholder="Email" />
+      <div class="errors">
+        <span *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched">
+          Invalid email!
+        </span>
+      </div>
     </div>
-    <button [disabled]="form.invalid" class="login-submit" >Register</button>
- 
+
+    <div>
+      <label for="firstName">First Name*</label>
+      <input formControlName="firstName" type="text" id="firstName" placeholder="First Name" />
+      <div class="errors">
+        <span *ngIf="registerForm.get('firstName').invalid && registerForm.get('firstName').touched">
+          First Name is required!
+        </span>
+      </div>
+
+      <div>
+        <label for="lastName">Last Name*</label>
+        <input formControlName="lastName" type="text" id="lastName" placeholder="Email" />
+        <div class="errors">
+          <span *ngIf="registerForm.get('lastName').invalid && registerForm.get('lastName').touched">
+            Last Name is required!
+          </span>
+        </div>
+      </div>
+      <div formGroupName="passwords">
+        <div>
+          <label for="password">Password*</label>
+          <input formControlName="password" type="password" id="password" placeholder="Password" />
+          <div class="errors">
+            <span *ngIf="registerForm.get('passwords').invalid && registerForm.get('passwords').touched">
+              Password is required!
+            </span>
+          </div>
+        </div>
+      <div>
+        <label for="re-password">Re-Password*</label>
+        <input formControlName="rePassword" type="password" id="re-password" placeholder="re-Password" />
+        <div class="errors">
+          <span *ngIf="registerForm.get('passwords').get('password').invalid && registerForm.get('passwords').get('password').touched">
+            Both passwords should match!
+          </span>
+        </div>
+      </div>
+    </div>
+    </div>
+    {{registerForm.value | json}}
+    <a routerLink="/user/login">
+      ALready registred?Go to Login.
+    </a>
+    <button [disabled]="registerForm.invalid" class="login-submit">Register</button>
   </form>
-  <div class="underlay-photo"></div>
- 
+</div>

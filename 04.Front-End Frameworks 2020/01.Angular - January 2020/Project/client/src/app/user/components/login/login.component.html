@@ -1,6 +1,28 @@
-<form [formGroup]="loginForm" (ngSubmit)="loginHandler(loginForm.value)" class="login-form">
-  <input formControlName="email" type="email" class="login-username" autofocus="true" placeholder="Email" />
-  <input formControlName="password" type="password" class="login-username" autofocus="true" placeholder="Password" />
-  <button [disabled]="loginForm.invalid" class="login-submit">Login</button>
-</form>
-<div class="underlay-photo"></div>
+
+<div class="form-wrapper">
+  <h1>Account Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="loginHandler(loginForm.value)" class="login-form">
+    <div>
+      <label for="email">Email*</label>
+      <input formControlName="email" type="email" id="email" placeholder="Email" />
+      <div class="errors">
+    <span *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+      Invalid email!
+    </span>
+      </div>
+    </div>
+   <div>
+    <label for="password">Password*</label>
+    <input formControlName="password" type="password" id="password" placeholder="Password" />
+   <div class="errors">
+    <span *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+      Password is required!
+    </span>
+   </div>
+   </div>
+   <a routerLink="/user/register">
+     Not registred?Create an account.
+   </a>
+    <button [disabled]="loginForm.invalid" class="login-submit">Login</button>
+  </form>
+</div>

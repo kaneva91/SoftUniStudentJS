@@ -10,16 +10,16 @@ import { UserService } from 'src/app/core/services/user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css', '../../form-style.css']
 })
 export class RegisterComponent {
 
-  form: FormGroup;
+  registerForm: FormGroup;
   private pattern = userConfig.emailPattern;
   constructor(private fb: FormBuilder,
     private userService: UserService,
     private router: Router) {
-    this.form = fb.group({
+    this.registerForm = fb.group({
       email: ['', [Validators.required, Validators.pattern(this.pattern)]],
       firstName: ['', Validators.required,],
       lastName: ['', Validators.required],
@@ -34,9 +34,9 @@ export class RegisterComponent {
   }
 
   registerHandler(data: IUser) {
-    console.log(data)
+
     this.userService.regiter(data).subscribe(res => console.log(res))
-    this.router.navigate(['/user/login'])
+
   }
 
 }
