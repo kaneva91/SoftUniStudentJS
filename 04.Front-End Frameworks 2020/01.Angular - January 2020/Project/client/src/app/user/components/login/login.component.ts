@@ -22,11 +22,9 @@ export class LoginComponent {
   }
 
   loginHandler(user) {
-    this.userService.login(user).subscribe(resp => {
-      console.log(resp)
-      this.userService.hasLoggedIn = user; //works fine
+    this.userService.login(user).subscribe(responce => {
+      this.userService.hasLoggedIn = responce; 
       this.router.navigate(['']);
     })
   }
-
 }

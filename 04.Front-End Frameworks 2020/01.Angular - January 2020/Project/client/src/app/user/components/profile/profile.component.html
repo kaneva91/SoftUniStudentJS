@@ -2,6 +2,11 @@
     <div class="left-side"></div>
     <div class="right-side">
         <h1> User profile</h1>
+       <div>
+        <button (click)="LogoutHandler()">Logout</button>
+        <button (click)="deleteProfileHandler()">Delete Profile</button>
+       </div>
+      
         {{currentUser | json}}
       </div>
 </section>

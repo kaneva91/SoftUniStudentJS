@@ -50,9 +50,13 @@ export class UserService {
   }
 
   loguot() {
-    return this.http.get<IUser>('/user/logout', {}).pipe(tap((user:any) => {
+    return this.http.post('user/logout', {}).pipe(tap((user:any) => {
       this.user = null;
     }));
+  }
+
+  delteProfile(){
+    return this.http.get('user/delete')
   }
 
  /*  handleError(error) {
