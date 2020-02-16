@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppInterceptor } from './app-interceptor';
 
 
 @NgModule({
@@ -21,11 +23,15 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-   
     UserModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers : [{
+    provide : HTTP_INTERCEPTORS,
+    useClass : AppInterceptor,
+    multi : true
+  }],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

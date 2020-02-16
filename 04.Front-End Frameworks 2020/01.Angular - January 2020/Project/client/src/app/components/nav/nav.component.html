@@ -32,7 +32,7 @@
         <ng-container *ngIf="isLoggedIn; then loggedIn; else loggedOut">
         </ng-container>
         <ng-template #loggedIn>   
-                <li><a routerLink="/user/login" class="nav-links">Profile</a></li>
+                <li><a routerLink="/user/profile" class="nav-links">Profile</a></li>
                 <li><a routerLink="/user/register" class="nav-links">Cart</a></li>
         </ng-template>
         <ng-template #loggedOut>        

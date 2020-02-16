@@ -34,9 +34,10 @@ export class RegisterComponent {
   }
 
   registerHandler(data: IUser) {
-
-    this.userService.regiter(data).subscribe(res => console.log(res))
-
+    this.userService.regiter(data).subscribe(res => {
+      console.log(res)
+      this.router.navigate['/login'] //not working
+    }, console.error)
+  
   }
-
 }

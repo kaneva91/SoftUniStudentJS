@@ -28,26 +28,26 @@ module.exports = {
         const userId = req.params.id;
         const item = JSON.stringify(req.body);
 
-         models.User.findOneAndUpdate({ _id:userId }, { $push: { cart: item } }, { new: true })
+        models.User.findOneAndUpdate({ _id: userId }, { $push: { cart: item } }, { new: true })
             .then(resp => res.send(resp))
- 
+
 
     },
 
-    getCartItems: (req,res,next) =>{
+    getCartItems: (req, res, next) => {
         const userId = req.params.id;
-        models.User.find({_id:userId})
-        .then(data=>{
-            const {cart} = data[0]
-            res.send(cart)
-        })
+        models.User.find({ _id: userId })
+            .then(data => {
+                const { cart } = data[0]
+                res.send(cart)
+            })
     },
 
-    deleteCart: (req,res,next) =>{
+    deleteCart: (req, res, next) => {
         const userId = req.params.id;
         console.log(userId)
-        models.User.findOneAndUpdate({ _id:userId }, { cart : [] } )
-        .then(resp=>res.send(resp))
+        models.User.findOneAndUpdate({ _id: userId }, { cart: [] })
+            .then(resp => res.send(resp))
     },
 
     delete: (req, res, next) => {
@@ -59,10 +59,8 @@ module.exports = {
 
     post: {
         register: (req, res, next) => {
-
-            const { passwords, firstName, lastName, email } = req.body;
-            let password=passwords.password
-            models.User.create({password, firstName, lastName, email })
+            const { firstName, lastName, email, password } = req.body;
+            models.User.create({ email, firstName, lastName, password })
                 .then((createdUser) => res.send(createdUser))
                 .catch(next)
         },
@@ -77,8 +75,8 @@ module.exports = {
                         return;
                     }
                     const token = utils.jwt.createToken({ id: user._id });
-                    const {email, firstName, lastName} = user;
-                    const currentUser =  {email, firstName, lastName};
+                    const { email, firstName, lastName } = user;
+                    const currentUser = { email, firstName, lastName };
                     console.log(currentUser)
                     res.cookie(config.authCookieName, token).send(currentUser);
                 })

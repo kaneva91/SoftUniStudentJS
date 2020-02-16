@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AppInterceptor } from './interceptors/app-interceptor';
+import { AppInterceptor } from '../app-interceptor';
 
 
 
@@ -10,10 +10,6 @@ import { AppInterceptor } from './interceptors/app-interceptor';
   imports: [
     CommonModule
   ],
-  providers : [{
-    provide : [HTTP_INTERCEPTORS],
-    useClass : AppInterceptor,
-    multi : true
-  }]
+  
 })
 export class CoreModule { }
