@@ -52,6 +52,7 @@ module.exports = {
 
     delete: (req, res, next) => {
         const id = req.params.id;
+        console.log(id)
         models.User.deleteOne({ _id: id })
             .then((removedUser) => res.send(removedUser))
             .catch(next)
@@ -75,8 +76,8 @@ module.exports = {
                         return;
                     }
                     const token = utils.jwt.createToken({ id: user._id });
-                    const { email, firstName, lastName } = user;
-                    const currentUser = { email, firstName, lastName };
+                    const { email, firstName, lastName, _id : id} = user;
+                    const currentUser = {id, email, firstName, lastName };
                     res.cookie(config.authCookieName, token).send(currentUser);
                 })
                 .catch(next);

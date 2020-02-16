@@ -27,12 +27,12 @@
     <ul class="main-nav" id="js-menu" >
         <li><a routerLink="" class="nav-links" >Home</a></li>
         <li><a routerLink="/menu" class="nav-links">Menu</a></li>
-        <li><a routerLink="/user/about" class="nav-links">About</a></li>
+        <li><a routerLink="/about" class="nav-links">About</a></li>
 
         <ng-container *ngIf="isLoggedIn; then loggedIn; else loggedOut">
         </ng-container>
         <ng-template #loggedIn>   
-                <li><a routerLink="/user/profile" class="nav-links">Profile</a></li>
+                <li><a routerLink="/user" class="nav-links">Profile</a></li>
                 <li><a routerLink="/user/cart" class="nav-links">Cart</a></li>
         </ng-template>
         <ng-template #loggedOut>        

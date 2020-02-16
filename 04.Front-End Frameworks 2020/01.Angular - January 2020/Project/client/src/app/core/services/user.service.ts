@@ -28,7 +28,7 @@ export class UserService {
     }, () => {
       this.user = null;
     });
-   }
+  }
 
   regiter(dataInput) {
 
@@ -46,25 +46,30 @@ export class UserService {
       console.log('login')
       this.user = user;
     }));
-
   }
 
   loguot() {
-    return this.http.post('user/logout', {}).pipe(tap((user:any) => {
+    return this.http.post('user/logout', {}).pipe(tap(() => {
       this.user = null;
     }));
   }
 
-  delteProfile(){
-    return this.http.get('user/delete')
+  delteProfile(id: String) {
+    return this.http.delete(`user/${id}`).pipe(tap(() => {
+    }))
+  };
+
+  edit(email: string, firstName: string, lastName: string) {
+    return this.http.put('user/id', { email, firstName, lastName })
+
   }
 
- /*  handleError(error) {
-    //let errorMessage = '';
-    if (error.status === 500) {
-      console.log(error.status)
-      return throwError(error);
-
-    }
-  } */
-  }
+  /*  handleError(error) {
+     //let errorMessage = '';
+     if (error.status === 500) {
+       console.log(error.status)
+       return throwError(error);
+ 
+     }
+   } */
+}

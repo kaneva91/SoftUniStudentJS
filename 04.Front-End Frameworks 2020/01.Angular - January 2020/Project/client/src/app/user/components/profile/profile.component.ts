@@ -1,37 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
-   get currentUser(){
-     return this.userService.userInfo;
-   }
+export class ProfileComponent {
+  get currentUser() {
+    return this.userService.userInfo;
+  }
 
-  constructor(private userService : UserService,
-        private router : Router) {
-   }
+  private profileForm: FormGroup;
 
-   LogoutHandler(){
-     this.userService.loguot().subscribe(resp=>{
-     console.log(resp)
-      this.router.navigate([''])
-     })
-   }
 
-   deleteProfileHandler(){
-    this.userService.delteProfile().subscribe(resp=>{
+  constructor(
+    private userService: UserService,
+    private fb: FormBuilder,
+    private router: Router) {
+    this.profileForm = fb.group({
+      firstName : ['', [Validators.required]],
+      lastName : ['', [Validators.required]],
+      email: ['', [Validators.required]],
+    })
+  }
+
+  LogoutHandler() {
+    this.userService.loguot().subscribe(resp => {
       console.log(resp)
-    
-    })  //throws error
-   this.router.navigate(['']) 
+      this.router.navigate([''])
+    })
   }
 
-  ngOnInit() {
+  deleteProfileHandler() {
+    const userId = this.userService.userInfo.id
+    this.userService.delteProfile(userId).subscribe(() =>
+      this.router.navigate([''])
+    )
   }
-
 }

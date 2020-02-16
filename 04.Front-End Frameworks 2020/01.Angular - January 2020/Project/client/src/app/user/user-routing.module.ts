@@ -13,7 +13,11 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/'
+        component: ProfileComponent,
+        canActivate: [AuthGuard],
+        data: {
+          isLogged: true
+        }
       },
       {
         path: 'login',
@@ -29,14 +33,6 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: {
           isLogged: false
-        }
-      },
-      {
-        path: 'profile',
-        component: ProfileComponent,
-        canActivate: [AuthGuard],
-        data: {
-          isLogged: true
         }
       },
       {

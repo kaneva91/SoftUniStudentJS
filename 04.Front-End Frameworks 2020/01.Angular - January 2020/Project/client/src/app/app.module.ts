@@ -10,7 +10,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppInterceptor } from './app-interceptor';
-
+import { MenuModule } from './menu/menu.module';
 
 @NgModule({
   declarations: [
@@ -18,12 +18,12 @@ import { AppInterceptor } from './app-interceptor';
     HomeComponent,
     NavComponent,
     FooterComponent,
-   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UserModule,
+    MenuModule,
     BrowserAnimationsModule
   ],
   providers : [{

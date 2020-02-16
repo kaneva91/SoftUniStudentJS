@@ -18,6 +18,56 @@
 
 .right-side{
     background: rgb(30,1,3);
-    background: linear-gradient(90deg, rgba(30,1,3,1) 0%, rgba(121,52,9,0.6954131994594712) 35%, rgba(203,168,102,1) 100%);
+    background: linear-gradient(90deg, rgba(30,1,3,1) 8%, rgba(121,52,9,1) 100%, rgba(203,168,102,1) 100%);
     width: 60%;
+    color: white;
+}
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+    
+}
+input {
+    float: left;
+    display: inline-block;
+     background: transparent;
+    color : white;
+    border : none;
+    border-bottom : 0.5px solid white; 
+    margin : 20px;
+    outline: none;
+}
+
+.profile-info{
+    margin-top: 30px;
+}
+.buttons-holder-upper{
+    padding-left: 400px;
+}
+.buttons-holder-bottom button{
+    display: inline;
+}
+
+.button-click{
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;
+    width: 120px;
+    background-color: black;
+    color: white;
+    margin-left: 100px;
+    border: 0.5px solid lightgray;
+  }
+
+@media screen and (max-width: 768px){
+    .left-side{
+        width: 0;
+    }
+    .right-side{
+        width: 100%;
+    }
 }
