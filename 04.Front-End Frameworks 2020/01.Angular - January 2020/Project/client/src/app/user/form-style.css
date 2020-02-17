@@ -1,0 +1,72 @@
+.form-wrapper{
+    text-align: center;
+    font-size: 18px;
+    padding :50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    color: white;
+  }
+  
+  form{
+    border-radius: 3px;;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding :50px;
+  
+  }
+  label{
+    display: block;
+    margin-bottom: 3px;
+  }
+  input{
+    border : 1px solid white;
+    height: 30px;
+    width: 300px;
+    padding-left: 10px;
+    background-color: lightgray;
+    outline: none;
+  }
+    input.ng-invalid.ng-touched{
+      background-color: #AA3939;
+  }
+  
+  label, a{
+      text-transform: uppercase;
+    font-size: 15px;
+  }
+    a, .form-wrapper{
+      display:block;
+    
+    }
+  
+  a{
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  a:visited{
+    color: white;
+  }
+  
+  .errors p, .errors{
+    padding-top: 10px; 
+    max-height: 20px;
+    min-height: 20px;
+    font-style: italic;
+    font-size: 13px;
+    color : #AA3939;
+   text-align: right;
+  }
+
+  .button-click{
+    border: 0.5px solid lightgray;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100px;
+    background-color: black;
+    color: white;
+  }
+  

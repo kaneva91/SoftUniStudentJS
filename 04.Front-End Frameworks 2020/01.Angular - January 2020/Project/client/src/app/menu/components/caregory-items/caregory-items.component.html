@@ -1,0 +1,14 @@
+
+<h1>Products </h1>
+
+<div *ngFor="let product of products">
+    <p>
+        {{product.name}}
+    </p>
+    <button (click)="addToCartHandler(product)">
+        Add to cart
+    </button>
+</div>
+
+
+
