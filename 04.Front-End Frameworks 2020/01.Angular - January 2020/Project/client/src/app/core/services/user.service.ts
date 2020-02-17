@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IUser } from '../../shared/interfaces/user-interface';
 import { tap, shareReplay } from 'rxjs/operators';
+import { IProduct } from 'src/app/shared/interfaces/product-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,10 @@ export class UserService {
   edit(email: string, firstName: string, lastName: string) {
     return this.http.put('user/id', { email, firstName, lastName })
 
+  }
+
+  addToCart(product : IProduct){
+    return this.http.put(`user/add/${this.user.id}`, product)
   }
 
   /*  handleError(error) {

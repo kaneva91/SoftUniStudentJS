@@ -25,11 +25,12 @@ module.exports = {
     },
 
     add: (req, res, next) => {
-        const userId = req.params.id;
-        const item = JSON.stringify(req.body);
-
-        models.User.findOneAndUpdate({ _id: userId }, { $push: { cart: item } }, { new: true })
-            .then(resp => res.send(resp))
+        const userId = req.params.id
+        const item =req.body;
+        console.log(item),
+        console.log(userId)
+       models.User.updateOne({ _id: userId }, { $push: { cart: item } })
+            .then(resp => res.send(resp))  
 
 
     },
