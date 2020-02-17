@@ -43,7 +43,6 @@ export class UserService {
 
   login(data) {
     return this.http.post('user/login', data).pipe(tap((user: any) => {
-      console.log('login')
       this.user = user;
     }));
   }
@@ -51,6 +50,7 @@ export class UserService {
   loguot() {
     return this.http.post('user/logout', {}).pipe(tap(() => {
       this.user = null;
+      console.log(this.user)
     }));
   }
 
