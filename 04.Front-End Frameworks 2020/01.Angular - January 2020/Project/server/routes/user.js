@@ -12,7 +12,7 @@ router.post('/logout', controllers.user.post.logout);
 router.get('/:id', controllers.user.get);
 
 router.put('/:id', controllers.user.put);
-
+    
 router.put('/add/:id', controllers.user.add); //add item to cart
 
 router.get('/get/:id', controllers.user.getCartItems); //get 

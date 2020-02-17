@@ -27,21 +27,16 @@ module.exports = {
     add: (req, res, next) => {
         const userId = req.params.id
         const item =req.body;
-        console.log(item),
-        console.log(userId)
        models.User.updateOne({ _id: userId }, { $push: { cart: item } })
             .then(resp => res.send(resp))  
-
-
     },
 
     getCartItems: (req, res, next) => {
+      
         const userId = req.params.id;
-        models.User.find({ _id: userId })
-            .then(data => {
-                const { cart } = data[0]
-                res.send(cart)
-            })
+        console.log(userId)
+        models.User.find({ _id: userId }).populate('cart')
+        .then(resp=> res.send(resp))
     },
 
     deleteCart: (req, res, next) => {

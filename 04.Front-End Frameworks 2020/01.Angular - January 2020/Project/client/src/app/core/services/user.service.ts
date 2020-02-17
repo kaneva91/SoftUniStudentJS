@@ -69,6 +69,10 @@ export class UserService {
     return this.http.put(`user/add/${this.user.id}`, product)
   }
 
+  getCartItems(){
+    return this.http.get(`user/get/${this.user.id}`)
+  }
+
   /*  handleError(error) {
      //let errorMessage = '';
      if (error.status === 500) {
