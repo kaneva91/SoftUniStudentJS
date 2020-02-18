@@ -1,0 +1,42 @@
+.menu-wrapper{
+    background-image: url('/assets/menu-wall.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+h1{
+  margin :0;
+
+}
+.categories{
+  width:100%;
+  display: flex;
+  justify-content: center ;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.product-link{
+  width: 250px;
+  height: 110px;
+  margin: 40px;
+  background-color : white;
+ display: flex;
+}
+img{
+  width: 110px;
+}
+a{
+text-decoration: none;
+  color: black;
+}
+.product-link:hover{
+  background-color: black;
+  color: white;
+}
+
+p{
+  display: inline;
+  margin: auto auto;
+}

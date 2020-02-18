@@ -40,4 +40,8 @@ export class ProfileComponent {
       this.router.navigate([''])
     )
   }
+
+  editProfileHandler(){
+    
+  }
 }

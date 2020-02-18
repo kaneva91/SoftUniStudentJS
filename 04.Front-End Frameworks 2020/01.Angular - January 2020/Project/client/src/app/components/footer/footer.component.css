@@ -1,33 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
 
-
-.site-footer{
-font-family: 'Abel', sans-serif;	
+footer{
 	background: rgb(28, 28, 29); 
-	color:#6D6D6D;
-	font-size: 15px;
-	padding-top: 20px;
-	
 }
-.upper-content{
-	display: flex;
-	justify-content: space-between;
-	padding-left: 200px;
-	padding-right: 200px;
-	
-}
-.upper-content a{
-	display: block;
-	padding: 3px;
-}
-.bottom-content p{
-	text-align: center;
-	width: 90%;
-	border-top: 1px solid white;
-	margin : 0 auto;
-	
-}
-img{
-	width: 200px;
-	padding-top: 50px;
+
+h3{
+	margin: 0;
 }

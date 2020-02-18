@@ -5,7 +5,6 @@
     
     <div class="profile-info">
       <form [formGroup]="profileForm">
-        <!--Should be form  -->
         <label>First Name:</label><input formControlName="firstName" type="text" [value]="currentUser.firstName">
         <label>Last Name:</label><input formControlName="lastName" type="text" [value]="currentUser.lastName" >
         <label>Email:</label><input formControlName="email" type="text" [value]="currentUser.email" >
@@ -13,7 +12,7 @@
     </div>
     <div class="buttons-holder-bottom">
       <button  class="button-click" (click)="LogoutHandler()">Logout</button>
-      <button  class="button-click" routerLink="/user/cart">Edit</button>
+      <button  class="button-click" (click)="editProfileHandler()">Edit</button>
       <button  class="button-click" (click)="deleteProfileHandler()">Delete Profile</button>
     </div>
   </div>

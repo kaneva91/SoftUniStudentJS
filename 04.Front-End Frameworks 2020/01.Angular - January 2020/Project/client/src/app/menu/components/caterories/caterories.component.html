@@ -1,8 +1,11 @@
-<h1>Menu Categories</h1>
-<a routerLink="/menu/soup">Soup</a>
-<a routerLink="/menu/salad">Sallads</a>
-<a routerLink="/menu/tagliatelle">Tagliatelle</a>
-<a routerLink="/menu/risotto">Risotto</a>
-<a routerLink="/menu/bbq">BBQ</a>
-<a routerLink="/menu/main-dish">Main Dishes</a>
-<a routerLink="/menu/desert">Deserts</a>
+<div class="menu-wrapper">
+  <h1>Menu Categories</h1>
+  <div class="categories">
+    <a *ngFor="let category of categories" routerLink="/menu/{{category.route}}">
+      <div class="product-link">
+        <img src="{{category.imageURL}}" />
+        <p>{{category.name | uppercase}}</p>
+      </div>
+    </a>
+  </div>
+</div>
