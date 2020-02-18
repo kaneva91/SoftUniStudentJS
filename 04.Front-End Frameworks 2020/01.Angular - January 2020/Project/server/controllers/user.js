@@ -26,19 +26,20 @@ module.exports = {
 
     add: (req, res, next) => {
         const userId = req.params.id
-        const item =req.body;
-       models.User.updateOne({ _id: userId }, { $push: { cart: item } })
-            .then(resp => res.send(resp))  
+        const item = req.body;
+        models.User.updateOne({ _id: userId }, { $push: { cart: item } })
+            .then(resp => res.send(resp))
     },
 
     getCartItems: (req, res, next) => {
-      
         const userId = req.params.id;
-        console.log(userId)
         models.User.find({ _id: userId }).populate('cart')
-        .then(resp=> res.send(resp))
+            .then(data => {
+                console.log(data)
+                const { cart } = data[0]
+                res.send(cart)
+            })
     },
-
     deleteCart: (req, res, next) => {
         const userId = req.params.id;
         console.log(userId)
@@ -72,8 +73,8 @@ module.exports = {
                         return;
                     }
                     const token = utils.jwt.createToken({ id: user._id });
-                    const { email, firstName, lastName, _id : id} = user;
-                    const currentUser = {id, email, firstName, lastName };
+                    const { email, firstName, lastName, _id: id } = user;
+                    const currentUser = { id, email, firstName, lastName };
                     res.cookie(config.authCookieName, token).send(currentUser);
                 })
                 .catch(next);
