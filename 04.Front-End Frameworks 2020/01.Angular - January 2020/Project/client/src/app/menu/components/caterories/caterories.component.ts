@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/core/services/category.service';
+import { IProduct } from 'src/app/shared/interfaces/product-interface';
+import { ICategory } from 'src/app/shared/interfaces/category-interface';
 
 
 @Component({
@@ -11,16 +13,14 @@ export class CateroriesComponent implements OnInit {
 
   constructor(private categoryService: CategoryService) { }
 
-  private data;
+  private data : ICategory[];
 
   get categories() {
     return this.data
   }
   ngOnInit() {
     this.categoryService.getCategories().subscribe(resp => this.data = resp);
-
   }
-
 }
 
 

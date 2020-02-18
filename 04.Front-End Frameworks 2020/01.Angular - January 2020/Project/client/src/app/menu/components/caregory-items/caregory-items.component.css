@@ -1,0 +1,33 @@
+.wrapper{
+
+    background-size: cover;
+    background-image: url('/assets/product-list.jpg') ;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    padding: 40px 110px ;
+    
+}
+
+.product{
+    border-bottom: 2px solid black;
+    display : flex;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+h1{
+    margin :0;
+}
+
+.description{
+    font-style: italic;
+}
+
+.product-info{
+    width: 400px;
+}
+.weight{
+    font-weight: 400;
+}
+.price{
+    font-weight: 500;
+}

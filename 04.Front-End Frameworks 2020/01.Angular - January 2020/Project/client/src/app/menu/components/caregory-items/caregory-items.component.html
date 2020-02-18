@@ -1,14 +1,25 @@
+<section class="wrapper">
+    <h1>Products </h1>
 
-<h1>Products </h1>
-
-<div *ngFor="let product of products">
-    <p>
-        {{product.name}}
-    </p>
-    <button (click)="addToCartHandler(product)">
-        Add to cart
-    </button>
-</div>
-
-
-
+    <div class="product" *ngFor="let product of products">
+        <div class="product-info">
+            <h4>
+                {{product.name | uppercase}}
+            </h4>
+            <p class="description">{{product.ingredients}}</p>
+        </div>
+        <div>
+            <p class="weight">
+                {{product.weight}}
+            </p>
+            <p class="price">
+                {{product.price}} BGN
+            </p>
+        </div>
+        <div>
+            <button (click)="addToCartHandler(product)">
+                Add to cart
+            </button>
+        </div>
+    </div>
+</section>
