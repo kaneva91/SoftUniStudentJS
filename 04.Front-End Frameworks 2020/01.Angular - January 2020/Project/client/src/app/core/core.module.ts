@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthGuard } from './guards/auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -8,7 +10,8 @@ import { AuthGuard } from './guards/auth.guard';
   declarations: [],
   providers :[AuthGuard],
   imports: [
-    CommonModule
+    CommonModule,
+   // BrowserAnimationsModule, ToastrModule.forRoot()
   ],
   
 })

@@ -35,24 +35,23 @@
           <label for="password">Password*</label>
           <input formControlName="password" type="password" id="password" placeholder="Password" />
           <div class="errors">
-            <span *ngIf="registerForm.get('passwords').invalid && registerForm.get('passwords').touched">
+            <span *ngIf="registerForm.get('passwords').get('password').invalid && registerForm.get('passwords').get('password').touched">
               Password is required!
             </span>
           </div>
         </div>
       <div>
         <label for="re-password">Re-Password*</label>
-        <input formControlName="rePassword" type="password" id="re-password" placeholder="re-Password" />
+        <input formControlName="rePassword"  type="password" id="re-password" placeholder="re-Password"/>
         <div class="errors">
-          <span *ngIf="registerForm.get('passwords').get('password').invalid && registerForm.get('passwords').get('password').touched">
+          <span *ngIf="registerForm.get('passwords').invalid && registerForm.get('passwords').get('password').touched">
             Both passwords should match!
           </span>
         </div>
       </div>
     </div>
     </div>
-    {{registerForm.value | json}}
-    <a routerLink="/user/login">
+    <a routerLink="/user/login" class="link">
       ALready registred?Go to Login.
     </a>
     <button [disabled]="registerForm.invalid" class="button-click">Register</button>

@@ -7,6 +7,7 @@ import { userConfig } from '../../user-config';
 import { passwordMatch } from 'src/app/shared/directives/password-match';
 import { UserService } from 'src/app/core/services/user.service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,9 +17,12 @@ export class RegisterComponent {
 
   registerForm: FormGroup;
   private pattern = userConfig.emailPattern;
+
   constructor(private fb: FormBuilder,
     private userService: UserService,
-    private router: Router) {
+    private router: Router,
+
+    ) {
     this.registerForm = fb.group({
       email: ['', [Validators.required, Validators.pattern(this.pattern)]],
       firstName: ['', Validators.required,],
@@ -34,8 +38,9 @@ export class RegisterComponent {
   }
 
   registerHandler(data: IUser) {
-    this.userService.regiter(data).subscribe(res => {
-      this.router.navigate['/login'] 
+    this.userService.regiter(data).subscribe(() => {
+    
+      this.router.navigate(['/user/login'])
     }, console.error)
   
   }

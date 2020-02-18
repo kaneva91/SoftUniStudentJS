@@ -36,8 +36,6 @@ export class UserService {
     const { firstName, lastName, email, passwords } = dataInput;
     const { password } = passwords;
     const data: IUser = { firstName, lastName, email, password };
-
-    console.log(data)
     return this.http.post<IUser>('user/register', data)
 
   }

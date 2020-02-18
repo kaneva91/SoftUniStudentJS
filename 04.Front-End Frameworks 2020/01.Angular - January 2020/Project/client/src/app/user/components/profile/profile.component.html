@@ -2,10 +2,7 @@
   <div class="left-side"></div>
   <div class="right-side">
     <h1> User profile</h1>
-    <div class="buttons-holder-upper">
-      <button  class="button-click" routerLink="/user/cart">Go to Cart</button>
-      <button  class="button-click" (click)="LogoutHandler()">Logout</button>
-    </div>
+    
     <div class="profile-info">
       <form [formGroup]="profileForm">
         <!--Should be form  -->
@@ -15,6 +12,7 @@
       </form>
     </div>
     <div class="buttons-holder-bottom">
+      <button  class="button-click" (click)="LogoutHandler()">Logout</button>
       <button  class="button-click" routerLink="/user/cart">Edit</button>
       <button  class="button-click" (click)="deleteProfileHandler()">Delete Profile</button>
     </div>
