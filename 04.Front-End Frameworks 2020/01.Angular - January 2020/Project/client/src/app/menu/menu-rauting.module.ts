@@ -14,7 +14,7 @@ const routes: Routes = [
           component: CateroriesComponent,
         },
         {
-          path: 'pizza',
+          path: 'soup',
           component: CaregoryItemsComponent,
     
         },
@@ -25,6 +25,26 @@ const routes: Routes = [
         },
         {
           path: 'salad',
+          component: CaregoryItemsComponent,
+         
+        },
+        {
+          path: 'risotto',
+          component: CaregoryItemsComponent,
+         
+        },
+        {
+          path: 'bbq',
+          component: CaregoryItemsComponent,
+         
+        },
+        {
+          path: 'main-dish',
+          component: CaregoryItemsComponent,
+         
+        },
+        {
+          path: 'desert',
           component: CaregoryItemsComponent,
          
         },
