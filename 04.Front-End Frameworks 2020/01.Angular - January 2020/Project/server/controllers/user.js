@@ -88,8 +88,8 @@ module.exports = {
             console.log('-'.repeat(100));
             models.TokenBlacklist.create({ token })
                 .then(() => {
-                    console.log('logout')
-                    res.clearCookie(config.authCookieName).send('Logout successfully!');
+                  
+                    res.clearCookie(config.authCookieName).send({logoutSuccess:true});
                 })
                 .catch(next);
         },

@@ -27,7 +27,7 @@ export class ProfileComponent {
     })
   }
 
-  LogoutHandler() {
+  logoutHandler() {
     this.userService.loguot().subscribe(resp => {
       console.log(resp)
       this.router.navigate([''])

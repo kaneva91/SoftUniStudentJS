@@ -1,9 +1,35 @@
  @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
 
-footer{
+ .site-footer{
 	background: rgb(28, 28, 29); 
+	font-family: Abel;
+	padding: 0 100px;
+	padding-top: 20px;
+	color: white
 }
 
 h3{
 	margin: 0;
+}
+
+img{
+	width: 150px;
+}
+
+.upper-content{
+	display: flex;
+	justify-content: space-between;
+}
+
+.get-started a{
+	display: block;
+	margin-top: 10px;
+
+}
+.contacts{
+	padding-left : 6 0px;
+}
+.bottom-content{
+	border-top: 1px solid white;
+	text-align: center;
 }

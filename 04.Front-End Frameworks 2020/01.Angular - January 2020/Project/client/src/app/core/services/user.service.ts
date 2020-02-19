@@ -8,7 +8,7 @@ import { IProduct } from 'src/app/shared/interfaces/product-interface';
   providedIn: 'root'
 })
 export class UserService {
-  private user: IUser = null;
+   user: IUser;
 
   get userInfo() {
     return this.user;
@@ -48,8 +48,7 @@ export class UserService {
 
   loguot() {
     return this.http.post('user/logout', {}).pipe(tap(() => {
-/*       this.user = null;
-      console.log(this.user) */
+        this.user = null;
     }));
   }
 
