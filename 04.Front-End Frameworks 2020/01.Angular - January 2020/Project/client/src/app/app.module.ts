@@ -11,6 +11,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppInterceptor } from './app-interceptor';
 import { MenuModule } from './menu/menu.module';
+import { NontFoundComponent } from './components/nont-found/nont-found.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { MenuModule } from './menu/menu.module';
     HomeComponent,
     NavComponent,
     FooterComponent,
+    NontFoundComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +29,9 @@ import { MenuModule } from './menu/menu.module';
     UserModule,
     MenuModule,
     BrowserAnimationsModule
+  ],
+  exports : [
+    NontFoundComponent 
   ],
   providers : [{
     provide : HTTP_INTERCEPTORS,

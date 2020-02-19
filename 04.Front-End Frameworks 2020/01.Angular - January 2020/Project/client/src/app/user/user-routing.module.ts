@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { CartComponent } from './components/cart/cart.component';
+import { NontFoundComponent } from '../components/nont-found/nont-found.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,7 @@ const routes: Routes = [
           isLogged: true
         }
       },
+      
     ]
   }
 ];
