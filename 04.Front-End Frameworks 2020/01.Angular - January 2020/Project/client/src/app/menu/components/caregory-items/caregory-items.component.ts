@@ -30,7 +30,14 @@ export class CaregoryItemsComponent implements OnInit {
   }
 
   addToCartHandler(product : IProduct){
-      this.userService.addToCart(product).subscribe(res => console.log(res))
+
+      if(this.userService.isLogged){
+        this.userService.addToCart(product).subscribe(res => console.log(res))
+      }
+      else{
+        this.router.navigate(['user/login'])
+      }
+    
   }
 
 }

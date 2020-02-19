@@ -31,3 +31,17 @@ h1{
 .price{
     font-weight: 500;
 }
+.add-button{
+    padding: 10px;
+    margin-top: 40px;
+    color: white;
+    background-color: black;
+    font-weight: 500;
+    outline: none;
+}
+
+.add-button:hover{
+    color: black;
+    background-color: white;
+    font-weight: 500;
+}
