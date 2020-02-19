@@ -23,7 +23,7 @@ export class ProfileComponent {
     this.profileForm = fb.group({
       firstName : ['', [Validators.required]],
       lastName : ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: [`${this.userService.userInfo.email}`,],
     })
   }
 
@@ -41,7 +41,9 @@ export class ProfileComponent {
     )
   }
 
-  editProfileHandler(){
-    
+  editProfileHandler(data){
+    const userId = this.userService.userInfo.id;
+    this.userService.editProfile(data).subscribe(res=> console.log(res))
+    console.log(data)
   }
 }

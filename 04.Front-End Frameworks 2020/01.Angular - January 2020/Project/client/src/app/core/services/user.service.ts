@@ -48,8 +48,8 @@ export class UserService {
 
   loguot() {
     return this.http.post('user/logout', {}).pipe(tap(() => {
-      this.user = null;
-      console.log(this.user)
+/*       this.user = null;
+      console.log(this.user) */
     }));
   }
 
@@ -58,8 +58,8 @@ export class UserService {
     }))
   };
 
-  edit(email: string, firstName: string, lastName: string) {
-    return this.http.put('user/id', { email, firstName, lastName })
+  editProfile(data) {
+    return this.http.put(`user/${this.user.id}`,data)
 
   }
 

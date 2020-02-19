@@ -18,6 +18,7 @@ module.exports = {
     put: (req, res, next) => {
         const id = req.params.id;
         const { firstName, lastName, email } = req.body;
+        console.log(req.body)
         const query = { firstName, lastName, email }
         models.User.findOneAndUpdate({ _id: id }, query, { new: true })
             .then((updatedUser) => res.send(updatedUser))
@@ -87,6 +88,7 @@ module.exports = {
             console.log('-'.repeat(100));
             models.TokenBlacklist.create({ token })
                 .then(() => {
+                    console.log('logout')
                     res.clearCookie(config.authCookieName).send('Logout successfully!');
                 })
                 .catch(next);

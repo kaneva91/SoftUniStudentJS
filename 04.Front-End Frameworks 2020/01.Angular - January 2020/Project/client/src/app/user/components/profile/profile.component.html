@@ -12,8 +12,8 @@
     </div>
     <div class="buttons-holder-bottom">
       <button  class="button-click" (click)="LogoutHandler()">Logout</button>
-      <button  class="button-click" (click)="editProfileHandler()">Edit</button>
-      <button  class="button-click" (click)="deleteProfileHandler()">Delete Profile</button>
+      <button  class="button-click" [disabled]="profileForm.invalid" (click)="editProfileHandler(profileForm.value)">Edit</button>
+      <button  class="button-click"  (click)="deleteProfileHandler()">Delete Profile</button>
     </div>
   </div>
 </section>
