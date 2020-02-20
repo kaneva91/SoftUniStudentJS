@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { format } from 'url';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +16,7 @@ export class ProfileComponent implements OnInit {
   private profileForm: FormGroup;
   private hasChanged = false;
 
-  get canEdit(){
+  get canEdit() {
     return !(this.hasChanged && this.profileForm.valid)
   }
 
@@ -43,9 +42,9 @@ export class ProfileComponent implements OnInit {
   }
 
   editProfileHandler(data) {
-    const userId = this.userService.userInfo.id;
-    this.userService.editProfile(data).subscribe(res=> {
-      this.userService.getUser()
+    this.userService.editProfile(data).subscribe(res => {
+      this.userService.updateUser = res;
+      console.log(res)
     })
   }
 

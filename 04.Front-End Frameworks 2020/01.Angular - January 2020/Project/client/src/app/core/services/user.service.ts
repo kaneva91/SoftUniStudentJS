@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-   user: IUser;
+  private user: IUser;
 
   get userInfo() {
     return this.user;
@@ -20,6 +20,10 @@ export class UserService {
   }
   set hasLoggedIn(value) {
     this.user = value;
+  }
+
+  set updateUser(updatedUser){
+    this.user = updatedUser
   }
 
 
@@ -50,7 +54,7 @@ export class UserService {
 
   loguot() {
     return this.http.post('user/logout', {}).pipe(tap(() => {
-        this.user = null;
+      this.user = null;
     }));
   }
 
@@ -60,27 +64,22 @@ export class UserService {
   };
 
   editProfile(data) {
-    return this.http.put(`user/${this.user.id}`,data)
+    return this.http.put(`user/${this.user.id}`, data)
 
   }
 
-  addToCart(product : IProduct){
+  addToCart(product: IProduct) {
     return this.http.put(`user/add/${this.user.id}`, product)
   }
 
-  getCartItems(){
+  getCartItems() {
     return this.http.get(`user/get/${this.user.id}`)
   }
 
-  checkOut(){
-  return this.http.put(`user/deleteCart/${this.user.id}`,{})
-  }
-
-  getUser(){
-    const userId=this.user.id;
-    return this.http.get<IUser>(`user/${userId}`).subscribe(response=>{
-      console.log(response)
-      this.user=response
-    })
+  checkOut() {
+    return this.http.put(`user/deleteCart/${this.user.id}`, {}).pipe(tap((updatedUser: IUser) => {
+      console.log(updatedUser)
+      this.user = updatedUser
+    }))
   }
 }

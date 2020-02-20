@@ -21,7 +21,8 @@ module.exports = {
         console.log(req.body)
         const query = { firstName, lastName, email }
         models.User.findOneAndUpdate({ _id: id }, query, { new: true })
-            .then((updatedUser) => res.send(updatedUser))
+            .then((updatedUser) => {console.log(updatedUser)
+                res.send(updatedUser)})
             .catch(err => console.log(err))
     },
 
