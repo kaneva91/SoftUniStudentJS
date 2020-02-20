@@ -25,14 +25,12 @@ import { AboutComponent } from './components/about/about.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     UserModule,
     MenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
-  exports : [
-    NontFoundComponent 
-  ],
+ 
   providers : [{
     provide : HTTP_INTERCEPTORS,
     useClass : AppInterceptor,

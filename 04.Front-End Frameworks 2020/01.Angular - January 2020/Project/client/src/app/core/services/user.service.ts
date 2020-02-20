@@ -21,6 +21,7 @@ export class UserService {
     this.user = value;
   }
 
+
   authCompleted$ = this.http.get('auth').pipe(shareReplay(1));
 
   constructor(private http: HttpClient) {

@@ -12,7 +12,7 @@
     </div>
     <div class="buttons-holder-bottom">
       <button  class="button-click" (click)="logoutHandler()">Logout</button>
-      <button  class="button-click" [disabled]="profileForm.invalid" (click)="editProfileHandler(profileForm.value)">Edit</button>
+      <button  class="button-click" [disabled]="canEdit" (click)="editProfileHandler(profileForm.value)">Edit</button>
       <button  class="button-click"  (click)="deleteProfileHandler()">Delete Profile</button>
     </div>
   </div>
