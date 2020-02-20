@@ -44,14 +44,13 @@ export class ProfileComponent implements OnInit {
 
   editProfileHandler(data) {
     const userId = this.userService.userInfo.id;
-    this.userService.editProfile(data).subscribe(res=> console.log(res))
-    console.log(data)
-    
-
+    this.userService.editProfile(data).subscribe(res=> {
+      this.userService.getUser()
+    })
   }
 
   logoutHandler() {
-    this.userService.loguot().subscribe(resp => {
+    this.userService.loguot().subscribe(() => {
       this.router.navigate(['']);
     })
   }

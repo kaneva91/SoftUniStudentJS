@@ -43,14 +43,12 @@ module.exports = {
     },
     deleteCart: (req, res, next) => {
         const userId = req.params.id;
-        console.log(userId)
         models.User.findOneAndUpdate({ _id: userId }, { cart: [] })
             .then(resp => res.send(resp))
     },
 
     delete: (req, res, next) => {
         const id = req.params.id;
-        console.log(id)
         models.User.deleteOne({ _id: id })
             .then((removedUser) => res.send(removedUser))
             .catch(next)
