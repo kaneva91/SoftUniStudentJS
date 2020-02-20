@@ -4,7 +4,7 @@
     background-image: url('/assets/product-list.jpg') ;
     max-width: 100%;
     background-repeat: no-repeat;
-    padding: 40px 110px ;
+    padding: 100px 210px ;
     
 }
 
@@ -17,6 +17,11 @@
 h1{
     margin :0;
 }
+    
+h1:first-letter {
+    text-transform: uppercase;
+}
+
 
 .description{
     font-style: italic;
