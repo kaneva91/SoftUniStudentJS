@@ -1,0 +1,25 @@
+<section class="wrapper">
+
+    <section class="cart">
+        <ul *ngIf="cart">
+            s
+            <li class="item" *ngFor="let item of cart">
+                <p class="name">{{item.name}}</p>
+                <p class="price">{{item.price}}</p>
+            </li>
+        </ul>
+        <div class="empty-cart" *ngIf="cart===null">
+            <p> Your cart is empty!!!</p>
+            <a routerLink="/menu">Go to menu</a>
+        </div>
+    </section>
+
+    <section class="summary">
+        <div>
+            <span class="items">🛒 {{count}} Meals</span>
+            <span class="total">Total: {{total}} BGN</span>
+        </div>
+
+        <button [disabled]="cart ===null" (click)="checkOutHandler()">Checkout 💳</button>
+    </section>
+</section>

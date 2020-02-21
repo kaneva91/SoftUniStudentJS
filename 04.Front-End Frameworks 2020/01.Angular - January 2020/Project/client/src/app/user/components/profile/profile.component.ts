@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +24,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private userService: UserService,
     private fb: FormBuilder,
-    private router: Router) {
+    private router: Router,
+    private toasterService: ToastrService) {
     this.profileForm = fb.group({
       firstName: [this.currentUser.firstName, [Validators.required]],
       lastName: [this.currentUser.lastName, [Validators.required]],
@@ -44,20 +46,22 @@ export class ProfileComponent implements OnInit {
   editProfileHandler(data) {
     this.userService.editProfile(data).subscribe(res => {
       this.userService.updateUser = res;
-      console.log(res)
+      this.toasterService.success('Profile edited successfully!')
     })
   }
 
   logoutHandler() {
     this.userService.loguot().subscribe(() => {
       this.router.navigate(['']);
+      this.toasterService.success('Logout successfully!')
     })
   }
 
   deleteProfileHandler() {
     const userId = this.userService.userInfo.id
     this.userService.delteProfile(userId).subscribe(() =>
-      this.router.navigate([''])
+  {  this.toasterService.success('Profile deleted!')
+      this.router.navigate([''])}
     )
   }
 }

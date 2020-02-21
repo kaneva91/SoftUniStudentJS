@@ -1,0 +1,12 @@
+.wrapper{
+    padding: 50px 100px;
+}
+img{
+    width: 450px;
+    float: right;
+    box-shadow: 10px 10px 16px -2px rgba(0,0,0,0.75);
+}
+
+h4{
+   font-style: italic;
+}
