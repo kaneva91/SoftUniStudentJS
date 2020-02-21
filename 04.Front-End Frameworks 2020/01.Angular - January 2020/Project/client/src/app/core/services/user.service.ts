@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { IUser } from '../../shared/interfaces/user-interface';
 import { tap, shareReplay } from 'rxjs/operators';
 import { IProduct } from 'src/app/shared/interfaces/product-interface';
@@ -27,7 +27,7 @@ export class UserService {
   }
 
 
-  authCompleted$ = this.http.get('auth').pipe(shareReplay(1));
+  authCompleted$ = this.http.get('api/auth').pipe(shareReplay(1));
 
 
   constructor(private http: HttpClient) {
@@ -68,18 +68,17 @@ export class UserService {
 
   }
 
-  addToCart(product: IProduct) {
+  addToCart(product) {
     return this.http.put(`user/add/${this.user.id}`, product)
   }
 
   getCartItems() {
-    return this.http.get(`user/get/${this.user.id}`)
+    return this.http.get<IProduct[]>(`user/get/${this.user.id}`)
   }
 
   checkOut() {
     return this.http.put(`user/deleteCart/${this.user.id}`, {}).pipe(tap((updatedUser: IUser) => {
-      console.log(updatedUser)
-      this.user = updatedUser
+      this.user = updatedUser;
     }))
   }
 }

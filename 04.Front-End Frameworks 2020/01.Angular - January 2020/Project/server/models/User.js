@@ -11,7 +11,7 @@ const userSchema = new Schema({
     email :{
         type: String,
         required : true,
-        unique : true
+        unique : [true, 'Email must be unique!']
     },
     firstName :{
         type: String,
@@ -25,7 +25,7 @@ const userSchema = new Schema({
 
     password: {
         type: String,
-        require: true
+        required: true
     },
     
     cart: [{

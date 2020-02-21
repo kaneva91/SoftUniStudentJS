@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -14,6 +14,10 @@ import { MenuModule } from './menu/menu.module';
 import { NontFoundComponent } from './components/nont-found/nont-found.component';
 import { AboutComponent } from './components/about/about.component';
 import { HttpErrorInterceptor } from './error-interceptor';
+
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,12 @@ import { HttpErrorInterceptor } from './error-interceptor';
     UserModule,
     MenuModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }) 
   ],
  
   providers : [{

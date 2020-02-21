@@ -13,9 +13,9 @@ router.get('/:id', controllers.user.get);
 
 router.put('/:id', controllers.user.put);
     
-router.put('/add/:id', controllers.user.add); //add item to cart
+router.put('/add/:id', controllers.user.add); 
 
-router.get('/get/:id', controllers.user.getCartItems); //get 
+router.get('/get/:id', controllers.user.getCartItems);
 
 router.delete('/:id', controllers.user.delete);
 
