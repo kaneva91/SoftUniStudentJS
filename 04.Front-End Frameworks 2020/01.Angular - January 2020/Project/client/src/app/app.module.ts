@@ -13,6 +13,7 @@ import { AppInterceptor } from './app-interceptor';
 import { MenuModule } from './menu/menu.module';
 import { NontFoundComponent } from './components/nont-found/nont-found.component';
 import { AboutComponent } from './components/about/about.component';
+import { HttpErrorInterceptor } from './error-interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,13 @@ import { AboutComponent } from './components/about/about.component';
     provide : HTTP_INTERCEPTORS,
     useClass : AppInterceptor,
     multi : true
-  }],
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpErrorInterceptor,
+    multi: true
+  }
+],
  
   bootstrap: [AppComponent]
 })

@@ -5,7 +5,7 @@
     max-width: 100%;
     background-repeat: no-repeat;
     padding: 100px 210px ;
-    
+    padding-bottom: 120px;
 }
 
 .product{
@@ -17,7 +17,7 @@
 h1{
     margin :0;
 }
-    
+
 h1:first-letter {
     text-transform: uppercase;
 }
