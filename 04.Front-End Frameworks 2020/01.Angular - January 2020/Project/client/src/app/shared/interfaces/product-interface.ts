@@ -1,7 +1,7 @@
 export interface IProduct {
     id? : String,
     name : String,
-    price : Number,
+    price : number,
     imageURL? : String
     ingredients : String,
     weight : number,

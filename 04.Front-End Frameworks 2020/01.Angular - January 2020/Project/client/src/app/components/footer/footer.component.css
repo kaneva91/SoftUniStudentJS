@@ -32,4 +32,10 @@ img{
 .bottom-content{
 	border-top: 1px solid white;
 	text-align: center;
+} a:visited{
+	color: white;
+	
+}
+a{
+	text-decoration: none;
 }

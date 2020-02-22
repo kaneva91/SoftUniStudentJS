@@ -41,14 +41,15 @@ export class UserService {
   regiter(dataInput) {
     const { firstName, lastName, email, passwords } = dataInput;
     const { password } = passwords;
-    const data: IUser = { firstName, lastName, email, password };
+    const data = { firstName, lastName, email, password };
     return this.http.post<IUser>('user/register', data)
 
   }
 
   login(data) {
-    return this.http.post('user/login', data).pipe(tap((user: any) => {
-      this.user = user;
+    return this.http.post('user/login', data).pipe(tap((resp: any) => {
+      this.user = resp;
+      console.log(resp)
     }));
   }
 
@@ -64,6 +65,7 @@ export class UserService {
   };
 
   editProfile(data) {
+    console.log(this.user.id)
     return this.http.put(`user/${this.user.id}`, data)
 
   }
@@ -78,7 +80,7 @@ export class UserService {
 
   checkOut() {
     return this.http.put(`user/deleteCart/${this.user.id}`, {}).pipe(tap((updatedUser: IUser) => {
-      this.user = updatedUser;
+      
     }))
   }
 }

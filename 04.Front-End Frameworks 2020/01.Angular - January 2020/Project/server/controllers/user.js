@@ -5,10 +5,10 @@ const utils = require('../utils');
 module.exports = {
     get: (req, res, next) => {
         const id = req.params.id;
-        models.User.find({ _id: id })
+        models.User.find({ _id : id})
             .then(data => {
-                const { username, firstName, lastName, email } = data[0]; //password is prevent to be sent to the front-end
-                userDetails = { username, firstName, lastName, email };
+                const {_id, username, firstName, lastName, email } = data[0]; //password is prevent to be sent to the front-end
+                userDetails = {_id : id, username, firstName, lastName, email};
                 return userDetails;
             })
             .then((user) => res.send(user))
@@ -18,10 +18,13 @@ module.exports = {
     put: (req, res, next) => {
         const id = req.params.id;
         const { firstName, lastName, email } = req.body;
-        console.log(req.body)
         const query = { firstName, lastName, email }
         models.User.findOneAndUpdate({ _id: id }, query, { new: true })
-            .then((updatedUser) => res.send(updatedUser))
+            .then((response) => {
+                const {_id,  firstName, lastName, email } = response;
+                const id=_id
+                const   updatedUser = {id, firstName, lastName, email};
+                res.send(updatedUser)})
             .catch(err => console.log(err))
     },
 
@@ -36,15 +39,16 @@ module.exports = {
         const userId = req.params.id;
         models.User.find({ _id: userId }).populate('cart')
             .then(data => {
-                console.log(data)
                 const { cart } = data[0]
                 res.send(cart)
             })
     },
     deleteCart: (req, res, next) => {
+
         const userId = req.params.id;
-        models.User.findOneAndUpdate({ _id: userId }, { cart: [] })
-            .then(resp => res.send(resp))
+        models.User.updateOne({ _id: userId }, { cart: [] })
+            .then(resp =>{
+                console.log(resp); res.send(resp)})
     },
 
     delete: (req, res, next) => {

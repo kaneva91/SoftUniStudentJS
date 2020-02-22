@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
 
   private cartItems = null;
   private countItems: number;
-  private totalSum : Number
+  private totalSum : number ;
 
   get cart() {
     return this.cartItems;
@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
   }
 
   get total() {
-    return this.totalSum;
+    return this.totalSum === undefined ? 0 : this.totalSum.toFixed(2) ;
   }
 
   constructor(private userService: UserService,
