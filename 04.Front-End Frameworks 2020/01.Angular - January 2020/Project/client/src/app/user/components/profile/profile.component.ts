@@ -25,7 +25,8 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private fb: FormBuilder,
     private router: Router,
-    private toasterService: ToastrService) {
+    private toasterService: ToastrService
+    ) {
     this.profileForm = fb.group({
       firstName: [this.currentUser.firstName, [Validators.required]],
       lastName: [this.currentUser.lastName, [Validators.required]],
@@ -47,13 +48,15 @@ export class ProfileComponent implements OnInit {
     this.userService.editProfile(data).subscribe(res => {
       this.userService.updateUser = res;
       this.toasterService.success('Profile edited successfully!')
+     // alert('Profile edited successfully!')
     })
   }
 
   logoutHandler() {
     this.userService.loguot().subscribe(() => {
       this.router.navigate(['']);
-      this.toasterService.success('Logout successfully!')
+     this.toasterService.success('Logout successfully!')
+      //alert('Logout successfully!')
     })
   }
 
@@ -61,6 +64,7 @@ export class ProfileComponent implements OnInit {
     const userId = this.userService.userInfo.id
     this.userService.delteProfile(userId).subscribe(() =>
   {  this.toasterService.success('Profile deleted!')
+ // alert('Profile deleted!')
       this.router.navigate([''])}
     )
   }

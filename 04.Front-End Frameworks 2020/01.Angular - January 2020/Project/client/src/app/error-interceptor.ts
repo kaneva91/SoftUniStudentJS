@@ -2,11 +2,11 @@ import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse, Htt
 import { Injectable } from "@angular/core"
 import { Observable, of } from "rxjs";
 import { tap, catchError } from "rxjs/operators";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-    constructor(public toasterService: ToastrService) {}
+    constructor(private toasterService: ToastrService) {}
 intercept(
         req: HttpRequest<any>,
         next: HttpHandler
@@ -17,6 +17,7 @@ intercept(
                 if (evt instanceof HttpResponse) {
                     if(evt.body && evt.body.success)
                         this.toasterService.success(evt.body.success.message, evt.body.success.title, { positionClass: 'toast-upper-center' });
+                        // alert( evt.body.success.message)
                 }
             }),
             catchError((err: any) => {
@@ -25,15 +26,18 @@ intercept(
                       if (err.status === 200) {return}
                       else if(err.url === 'http://localhost:9999/api/user/register'){
                         this.toasterService.error('Username already taken!!', err.error.title);
+                        // alert('Username already taken!!')
                         return;
                   
                       }
                       else if(err.url === 'http://localhost:9999/api/user/login'){
-                        this.toasterService.error('Invalid username or password!!!', err.error.title,);
+                       this.toasterService.error('Invalid username or password!!!', err.error.title,);
+                      //  alert('Invalid username or password!!!')
         
                       }
                     } catch(e) {
                         this.toasterService.error('An error occurred', '');
+                        // alert('An error occurred')
                     }
                 }
                 return of(err);
@@ -41,3 +45,4 @@ intercept(
       }
       
 }
+

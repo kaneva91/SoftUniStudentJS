@@ -27,7 +27,8 @@ export class CartComponent implements OnInit {
   }
 
   constructor(private userService: UserService,
-    private toasterService: ToastrService) { }
+   private toasterService: ToastrService
+    ) { }
 
   ngOnInit() {
     this.userService.getCartItems().subscribe(
@@ -44,6 +45,7 @@ export class CartComponent implements OnInit {
       this.countItems = 0;
       this.totalSum= 0;
       this.toasterService.success('Check out susseedded!!!')
+     // alert('Check out susseedded!!!')
     })
   }
 
