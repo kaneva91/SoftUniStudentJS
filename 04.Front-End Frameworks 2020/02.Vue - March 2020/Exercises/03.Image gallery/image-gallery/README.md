@@ -1,5 +1,6 @@
 # image-gallery
 An image gallery representation, which have a functionality to add images to the existing collection. Iniyially the gallery has and three images added. Each image has an description, which can be shown/hide when the appropriate button is pressed.
+Also evey unneeded image can be removed from the gallery, including the initial ones.
 
 ## Project setup
 ```

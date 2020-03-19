@@ -2,19 +2,20 @@
   <div class="container">
     <h1>Image Gallery</h1>
     <p>The gallery has {{count}} images!</p>
+    {{imageUrl}}
     <form @submit.prevent="addImage($event)">
       <h3>Add image to the galery:</h3>
       <div>
         <label for="img-source">Source:</label>
-        <input ref="image_url" type="text" placeholder="Your image source..." />
+        <input v-model="imageUrl" id="img-source" type="text" placeholder="Your image source..." />
       </div>
       <div>
         <label for="img-alt">Alt:</label>
-        <input ref="image_alt" type="text" placeholder="Your image alt..." />
+        <input v-model="alt" id="img-alt" type="text" placeholder="Your image alt..." />
       </div>
       <div>
         <label for="img-desc">Description:</label>
-        <textarea ref="image_description" placeholder="Your image description..."></textarea>
+        <textarea v-model="description" id="img-desc" placeholder="Your image description..."></textarea>
       </div>
       <button class="btn-add">Submit</button>
     </form>
@@ -24,6 +25,7 @@
       <div>
         <p v-show="item.isDescShown">{{item.description}}</p>
         <button class="btn-description" @click="descriptionHandle(item, $event)">{{btnText}}</button>
+        <button class="btn-remove" @click="removeImage(item)">Remove Image</button>
       </div>
     </div>
   </div>
@@ -60,7 +62,10 @@ export default {
           description: "Mountains"
         }
       ],
-      btnText: "Show Description"
+      btnText: "Show Description",
+      imageUrl: "",
+      alt: "",
+      description: ""
     };
   },
   computed: {
@@ -80,21 +85,24 @@ export default {
     },
     addImage() {
       const newImage = {
-        imageUrl: this.$refs.image_url.value,
-        alt: this.$refs.image_alt.value,
+        imageUrl: this.imageUrl,
+        alt: this.alt,
         isDescShown: false,
-        description: this.$refs.image_description.value
+        description: this.description
       };
       this.gallery = [...this.gallery, newImage];
-      this.$refs.image_url.value = "";
-      this.$refs.image_alt.value = "";
-      this.$refs.description.value = "";
+      this.imageUrl = "";
+      this.alt = "";
+      this.description = "";
+    },
+    removeImage(item) {
+      this.gallery = [...this.gallery.filter(a => a !== item)];
     }
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 div.container {
   margin-right: auto;
@@ -106,8 +114,8 @@ form {
   border-bottom: 1px solid black;
 }
 
-input{
-   width: 30%;
+input {
+  width: 30%;
 }
 
 textarea {
@@ -121,14 +129,14 @@ textarea {
   margin: 8px auto;
 }
 
-.btn-add{
+.btn-add {
   padding: 10px 15px;
   background: cornflowerblue;
   font-size: 16px;
- 
 }
-.btn-add, form{
-   margin-bottom: 30px;
+.btn-add,
+form {
+  margin-bottom: 30px;
 }
 
 div.gallery {
@@ -158,10 +166,19 @@ div.desc {
 }
 
 .btn-description {
-  padding: 6px 16px;
   background: #008ac2;
+}
+
+.btn-remove {
+  background: rgb(233, 59, 59);
+}
+
+.btn-description,
+.btn-remove {
+  padding: 6px 16px;
   color: #ccc;
   margin-bottom: 5px;
   outline: none;
+  width: 140px;
 }
 </style>
