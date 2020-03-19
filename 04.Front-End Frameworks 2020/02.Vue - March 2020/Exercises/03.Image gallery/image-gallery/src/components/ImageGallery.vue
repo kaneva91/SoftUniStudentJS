@@ -1,23 +1,30 @@
 <template>
-
   <div class="container">
-     <form >
-      <label for="img-source">Source:</label>
-      <input  type="text" id="img-source" placeholder="Your image source..." />
-
-      <label for="img-alt">Alt:</label>
-      <input type="text" id="img-alt" placeholder="Your image alt..." />
-
-      <label for="img-desc">Description:</label>
-      <textarea type="text" id="img-desc" placeholder="Your description..."></textarea>
-
-      <input class="btn-add" type="submit" value="Submit" />
+    <h1>Image Gallery</h1>
+    <p>The gallery has {{count}} images!</p>
+    <form @submit.prevent="addImage($event)">
+      <h3>Add image to the galery:</h3>
+      <div>
+        <label for="img-source">Source:</label>
+        <input ref="image_url" type="text" placeholder="Your image source..." />
+      </div>
+      <div>
+        <label for="img-alt">Alt:</label>
+        <input ref="image_alt" type="text" placeholder="Your image alt..." />
+      </div>
+      <div>
+        <label for="img-desc">Description:</label>
+        <textarea ref="image_description" placeholder="Your image description..."></textarea>
+      </div>
+      <button class="btn-add">Submit</button>
     </form>
+
     <div class="gallery" v-for="(item, index) in gallery" v-bind:key="index">
       <img :src="item.imageUrl" :alt="item.alt" width="600" height="400" />
-     <div> 
+      <div>
         <p v-show="item.isDescShown">{{item.description}}</p>
-       <button class="btn-description" @click="descriptionHandle(item, $event)">{{btnText}}</button></div>
+        <button class="btn-description" @click="descriptionHandle(item, $event)">{{btnText}}</button>
+      </div>
     </div>
   </div>
 </template>
@@ -32,39 +39,56 @@ export default {
           imageUrl: "imgs/img_5terre.jpg",
           alt: "Cinque Terre",
           isDescShown: false,
-          description: "Add a description of the image here"
+          description: "Cinque Terre"
         },
         {
           imageUrl: "imgs/img_forest.jpg",
           alt: "Forest",
           isDescShown: false,
-          description: "Add a description of the image here"
+          description: "Forest"
         },
         {
           imageUrl: "imgs/img_lights.jpg",
           alt: "Northern Lights",
           isDescShown: false,
-          description: "Add a description of the image here"
+          description: "Northern Lights"
         },
         {
           imageUrl: "imgs/img_mountains.jpg",
           alt: "Mountains",
           isDescShown: false,
-          description: "Add a description of the image here"
+          description: "Mountains"
         }
       ],
-      btnText: "Show More"
+      btnText: "Show Description"
     };
+  },
+  computed: {
+    count() {
+      return this.gallery.length;
+    }
   },
   methods: {
     descriptionHandle(item, event) {
-      if (event.target.textContent === "Show More") {
+      if (event.target.textContent === "Show Description") {
         item.isDescShown = true;
-        event.target.textContent = "Show less";
+        event.target.textContent = "Hide Description";
       } else {
         item.isDescShown = false;
-        event.target.textContent = "Show More";
+        event.target.textContent = "Show Description";
       }
+    },
+    addImage() {
+      const newImage = {
+        imageUrl: this.$refs.image_url.value,
+        alt: this.$refs.image_alt.value,
+        isDescShown: false,
+        description: this.$refs.image_description.value
+      };
+      this.gallery = [...this.gallery, newImage];
+      this.$refs.image_url.value = "";
+      this.$refs.image_alt.value = "";
+      this.$refs.description.value = "";
     }
   }
 };
@@ -73,23 +97,49 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div.container {
-  /*   display : flex;
-  justify-content: center; */
   margin-right: auto;
   margin-left: auto;
   max-width: 960px;
-  padding-right: 10px; /* 3 */
-  padding-left: 10px; /* 3 */
+}
+
+form {
+  border-bottom: 1px solid black;
+}
+
+input{
+   width: 30%;
+}
+
+textarea {
+  width: 50%;
+  height: 60px;
+}
+
+input,
+textarea {
+  display: block;
+  margin: 8px auto;
+}
+
+.btn-add{
+  padding: 10px 15px;
+  background: cornflowerblue;
+  font-size: 16px;
+ 
+}
+.btn-add, form{
+   margin-bottom: 30px;
 }
 
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
-  float: left;
+
   width: 180px;
   -webkit-box-shadow: 3px 3px 5px -2px rgba(0, 0, 0, 0.58);
   -moz-box-shadow: 3px 3px 5px -2px rgba(0, 0, 0, 0.58);
   box-shadow: 3px 3px 5px -2px rgba(0, 0, 0, 0.58);
+  float: left;
 }
 
 div.gallery:hover {
@@ -109,7 +159,7 @@ div.desc {
 
 .btn-description {
   padding: 6px 16px;
-  background: #008AC2;
+  background: #008ac2;
   color: #ccc;
   margin-bottom: 5px;
   outline: none;
