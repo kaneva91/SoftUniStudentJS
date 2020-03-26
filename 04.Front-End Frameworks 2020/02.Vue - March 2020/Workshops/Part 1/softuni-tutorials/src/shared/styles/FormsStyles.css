@@ -1,0 +1,52 @@
+.btn {
+    padding: 1%;
+    background: #44a9f8;
+    color: white;
+    border: none;
+    width: 10%;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid white;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.btn:hover {
+    color: #44a9f8;
+    background: white;
+    border: 1px solid #44a9f8;
+    text-decoration: underline;
+}
+
+div.form-group {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+div.form-group input, option, select {
+    font-size: 18px;
+    padding: 1%;
+    width: 25%;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    font-family: inherit;
+    text-align: center;
+	text-align-last: center;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.content-preview {
+    text-align: left;
+    word-wrap: break-word;
+    display: block;
+    width: 100%;
+}
